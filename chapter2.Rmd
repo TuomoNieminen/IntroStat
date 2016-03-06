@@ -1,13 +1,13 @@
 ---
-title       : InroStat 2
+  title       : InroStat 2
 description : test (plotting)
-  
+
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Barplots
 
 This exercise shows how to create bar plots with R, using package ggplot2!
   
-*** =instructions
+  *** =instructions
 - check out the structure of the iris data set
 - check the first 10 rows of the iris dataset
 - create a bar plot of the factor variable using the `qplot()` function from the ggplot2 package
@@ -19,7 +19,7 @@ This exercise shows how to create bar plots with R, using package ggplot2!
 - use `qplot(x=?,data=?)`-function for barplot
 - you can always use `?function_name` for help!
   
-*** =pre_exercise_code
+  *** =pre_exercise_code
 # preload
 library(ggplot2)
 ```
