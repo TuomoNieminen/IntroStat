@@ -10,14 +10,13 @@ This exercise shows how to create bar plots with R, using package ggplot2!
 *** =instructions
 - check out the structure of the iris data set
 - check the first 10 rows of the iris dataset
-- activate the ggplot2 package
-- create a bar plot of the factor variable using the `qplot()` function
+- create a bar plot of the factor variable using the `qplot()` function from the ggplot2 package
 
 *** =hint
 - `str()`-function gives information about R-objects
 - `head(x, n=10)` will give the first 10 rows of `x`.
 - use the `library(name_of_library)`-function to use a library
-- use `data_frame$variable` to  access a variable in a data frame and then use the qplot()`-function for barplot
+- use `data_frame$variable` to  access a variable in a data frame and then use the `qplot()`-function for barplot
 - you can always use `?function_name` for help!
   
 *** =pre_exercise_code
@@ -34,7 +33,7 @@ This exercise shows how to create bar plots with R, using package ggplot2!
 
 
 # use the ggplot2 package
-
+library(ggplot2)
 
 # draw a barplot
 
