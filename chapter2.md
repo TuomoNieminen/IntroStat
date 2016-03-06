@@ -20,7 +20,8 @@ This exercise shows how to create bar plots with R, using package ggplot2!
 - you can always use `?function_name` for help!
   
 *** =pre_exercise_code
-# no precode
+# preload
+library(ggplot2)
 ```
 
 *** =sample_code
@@ -34,6 +35,7 @@ This exercise shows how to create bar plots with R, using package ggplot2!
 
 # use the ggplot2 package
 library(ggplot2)
+
 
 # draw a barplot
 
@@ -61,18 +63,13 @@ qplot(x=Species,data=iris)
 ```{r}
 
 # Test whether the function str is called with the correct argument, object
-# If it is not called, print something informative
-# If it is called, but called incorrectly, print something else
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
+test_function("str", args = "object")
 
+# Test whether the student correctly called head()
+test_function("head", args = c("x","n") )
 
-# Test whether the student correctly used head()
-# use the automatically generated feedback here
-test_function("head", args = c("x","n"))
-
-test_function("qplot",args=c("x","data"))
+# test qplot()
+test_function("qplot",args=c("x","data") )
 
 
 # It's always smart to include the following line of code at the end of your SCTs
@@ -82,4 +79,5 @@ test_error()
 
 # Final message the student will see upon completing the exercise
 success_msg("Good work!")
+
 ```
