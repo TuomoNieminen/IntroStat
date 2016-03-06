@@ -1,7 +1,7 @@
 
 ---
-title       : Insert the chapter title here
-description : Insert the chapter description here
+title       : Chapter 1
+description : Template chapter
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
