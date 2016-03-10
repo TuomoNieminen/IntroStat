@@ -1,0 +1,157 @@
+---
+title       : Meet R
+description : Soft introduction to R
+
+--- type:NormalExercise lang:r xp:50 skills:1
+## Basic tools (scriptic!)
+
+Welcome. On your right you see the R editor area and below that the R console. 
+The way to use these two is to first write commands to the editor area (just as you would write in any text editor). 
+Then you can execute the row where your cursor is, or the rows you have highlighted by pressing Ctrl+Enter. 
+Output will then appear in the console. 
+
+Let's try it!
+  
+*** =instructions
+- Follow the instructions in the sript and use R as a calculator
+- `+`, `-`, `/`, `*`  are the plus, minus, division and multiplication operations.
+- When you are done experimenting, press the 'Submit answer' button.
+
+*** =hint
+- Remember that Ctrl+Enter executes a single row.
+  
+  *** =pre_exercise_code
+```
+
+*** =sample_code
+```{r}
+# I am a comment telling you that this is the R editor!
+
+
+# You can use R as a calculator. Execute the below line with Ctrl + Enter
+5 + 5
+
+
+# Executing a comment will only print the comment, try it!
+# 5 + 5
+
+
+# Try your own calculations below, and execute them.
+
+
+
+# Below me is the R console, where you will see output
+```
+
+*** =solution
+```{r}
+# I am a comment telling you that this is the R editor!
+
+
+# You can use R as a calculator. Execute the below line with Ctrl + Enter
+5 + 5
+
+
+# Executing a comment will only print the comment, try it!
+# 5 + 5
+
+
+# Try your own calculations below, and execute them.
+
+
+
+# Below me is the R console, where you will see output
+```
+
+*** =sct
+```{r}
+
+# It's always smart to include the following line of code at the end of your SCTs
+# It will check whether executing the student's code resulted in an error, 
+# and if so, will cause the exercise to fail
+test_error()
+
+# Final message the student will see upon completing the exercise
+success_msg("Good work!")
+
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## R objects
+
+In R you can create and operate on things called *objects*. 
+An object is just something that knows what kind of object it is and can store information. 
+The beauty of R is that you can store these objects for later use in your very own variables using the assign operator: `<-`.
+
+
+Let's try it!
+
+*** =instructions
+- Execute the lines that define the variables `myHello` and `ans` and print their values
+- Create your own variable, called `myMessage` and assign the text "I am an awsome R message." to it.
+
+*** =hint
+- Remember that Ctrl+Enter executes a single row.
+
+*** =pre_exercise_code
+```
+
+*** =sample_code
+```{r}
+
+# create a variable named myHello
+myHello <- "Hi there!"
+
+# print the variable by simply typing it's name
+myHello
+
+# Create a numeric variable
+ans <- 5 + 5
+
+# Do some operations with ans
+(ans/5) + 2
+
+
+# Create myName and myMessage here
+
+
+
+```
+
+*** =solution
+```{r}
+
+# create a variable named myHello
+myHello <- "Hi there!"
+
+# print the variable by simply typing it's name
+myHello
+
+# Create a numeric variable
+ans <- 5 + 5
+
+# Do some operations with ans
+(ans/5) + 2
+
+
+# Create myName and myMessage here
+myName <- "Tuomo"
+myMessage <- "you're an awsome R coder!"
+
+
+```
+
+*** =sct
+```{r}
+
+test_object("myMessage")
+
+# It's always smart to include the following line of code at the end of your SCTs
+# It will check whether executing the student's code resulted in an error, 
+# and if so, will cause the exercise to fail
+test_error()
+
+# Final message the student will see upon completing the exercise
+success_msg(paste(myName, myMessage))
+
+```
