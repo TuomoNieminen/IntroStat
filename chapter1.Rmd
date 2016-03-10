@@ -166,6 +166,6 @@ test_object("myMessage")
 test_error()
 
 # Final message the student will see upon completing the exercise
-success_msg(paste0(myName,myDB,", ", myMessage))
+success_msg(paste0(myName,myBD,", ", myMessage))
 
 ```
