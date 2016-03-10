@@ -19,9 +19,7 @@ Let's try it!
 
 *** =hint
 - Remember that Ctrl+Enter executes a single row.
-  
-  *** =pre_exercise_code
-```
+
 
 *** =sample_code
 ```{r}
