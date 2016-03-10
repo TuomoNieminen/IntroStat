@@ -84,6 +84,7 @@ success_msg("Good work!")
 
 ```
 
+
 --- type:NormalExercise lang:r xp:100 skills:1
 ## R objects
 
@@ -166,6 +167,172 @@ test_object("myMessage")
 test_error()
 
 # Final message the student will see upon completing the exercise
-success_msg(paste0(myName,myBD,", ", myMessage))
+success_msg(paste0(myName,"_",myBD,", ", myMessage))
+
+```
+
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Title
+
+
+Now that we know how to create variables that store our objects using the assign operator `<-`, the real fun can begin!
+
+In R you can operate on objects using *functions*. This is how we're actually going to do all the magic. During this course we will ony operate on ready-made functions, but for clarity we will look at how a function is created and what are it's parts.
+
+A function is called by typing it's name and giving it the necessary *arguments* inside parenthesis.
+
+
+*** =instructions
+- Try the function calls that are already defined
+- use the `create_nick()`- function to create a nick with name "R" and number 93.
+- assign the created nick to a variable called 'ans'
+
+*** =hint
+- Remember that the editor code is executed line by line with Ctrl + Enter
+- Assignment is done with the `<-` operator: `variable_name <- function_name(arguments)
+
+*** =pre_exercise_code
+```{r}
+# code to preload datasets etc
+add_5 <- function(n) {
+  result <- n + 5
+  result
+}
+
+create_nick <- function(name = "Juha", no = 86) {
+  
+  paste("Your nick is: ", name, no, sep="")
+
+}
+```
+
+
+*** =sample_code
+```{r}
+
+# create a simple function with one argument: n
+add_5 <- function(n) {
+  result <- n + 5
+  result
+}
+
+# call the add_5 function. (It is already defined and saved for you)
+add_5(n = 5)
+
+# functions can be more complicated and have multiple arguments. Arguments can also have default values
+create_nick <- function(name, no = 86) {
+  
+  paste("Your nick is: ", name, no, sep="")
+
+}
+
+# call the create_nick function
+create_nick(name="Juha")
+
+# If you give the arguments in the right order, you don't have to state which is which.
+create_nick("Juha")
+create_nick("Minni", 98)
+create_nick(no = 98, name = "Minni")
+
+
+# assign the function output to a variable 'ans' here
+
+
+
+
+
+```
+
+*** =solution
+```{r}
+
+# call the add_5() function. (It is already defined and saved for you)
+add_5(n = 5)
+
+# call the crea_nick() function
+create_nick(name="Juha")
+
+# If you give the arguments in the right order, you don't have to state which is which.
+create_nick("Juha")
+create_nick("Joni", 92)
+create_nick(no = 92, name = "Joni")
+
+# assign the function output to a variable 'ans' here
+ans <- create_nick("R", 93)
+
+
+```
+
+*** =sct
+```{r}
+
+# tests. 
+
+# test_object("name") 
+
+# test_function("name", args=c("arg1","arg2"))
+
+test_object("ans")
+
+# It's always smart to include the following line of code at the end of your SCTs
+# It will check whether executing the student's code resulted in an error, 
+# and if so, will cause the exercise to fail
+test_error()
+
+# Final message the student will see upon completing the exercise
+success_msg("Great job!")
+
+```
+
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## R data frames
+
+The most common object to operate on is the `data frame` object, which stores data in tabular form.
+
+Here we will look at some of the functions that are helpful for inspecting a data frame: `head()`, `tail()`, `str()`, `names()`. We will use an R data set called `iris`, which contains information about different flower species.
+
+
+
+*** =instructions
+- 
+
+*** =hint
+- Remember that Ctrl+Enter executes a single row.
+
+*** =pre_exercise_code
+```{r}
+```
+
+
+*** =sample_code
+```{r}
+
+# sample code
+
+
+
+```
+
+*** =solution
+```{r}
+
+# solution
+
+
+```
+
+*** =sct
+```{r}
+
+
+# It's always smart to include the following line of code at the end of your SCTs
+# It will check whether executing the student's code resulted in an error, 
+# and if so, will cause the exercise to fail
+test_error()
+
+# Final message the student will see upon completing the exercise
+success_msg(paste0(myName,"_",myBD,", ", myMessage))
 
 ```
