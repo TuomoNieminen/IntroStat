@@ -3,7 +3,7 @@ title       : Meet R
 description : Soft introduction to R
 
 --- type:NormalExercise lang:r xp:50 skills:1
-## Basic tools (scriptic!)
+## Basic tools
 
 Welcome. On your right you see the R editor area and below that the R console. 
 The way to use these two is to first write commands to the editor area (just as you would write in any text editor). 
