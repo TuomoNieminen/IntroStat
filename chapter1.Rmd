@@ -37,17 +37,17 @@ Try it!
 # You can use R as a calculator. Execute the below line with Ctrl + Enter.
 5 + 5
 
-# A hashtag at the beginning of the line defines the line as a comment.
+# A hashtag at the beginning of the line defines the line as a comment
 
 # Executing a comment will only print the comment, try it!
 # 5 + 5
 
 
-# Try your own calculations below, and execute them.
+# Try your own calculations below, and execute them
 
 
 
-# Belo is the R console, where you will see output
+# Below is the R console, where you will see output
 
 ```
 
@@ -64,7 +64,7 @@ Try it!
 # 5 + 5
 
 
-# Try your own calculations below, and execute them.
+# Try your own calculations below, and execute them
 
 
 
@@ -87,7 +87,7 @@ success_msg("Good work!")
 
 
 --- type:NormalExercise lang:r xp:50 skills:1
-## R objects
+## Objects
 
 In R you can create and operate on things called *objects*. 
 An object is just something that knows it's own type and can store information such as numerical values and names.
@@ -97,8 +97,8 @@ The beauty of R is that you can store these objects for later use  using the ass
 
 *** =instructions
 - Execute the lines that define the objects `hello` and `ans` and print their values
-- Assign you name or nickname to `my_name`
-- Assign the text "you are awsome!" to `my_message`
+- Assign your name or nickname to `my_name`
+- Assign the text "you're awsome!" to `my_message`
 
 *** =hint
 - Remember that Ctrl+Enter executes a single row.
@@ -177,7 +177,7 @@ success_msg(paste0(my_name, ", ", my_message))
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## R data frames
+## Data frames
 
 The most common object to operate on is the `data frame` object, which stores data in tabular form.
 
@@ -249,7 +249,7 @@ success_msg("Good work!")
 
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## R functions
+## Functions
 
 
 As we just saw, in R you can operate on objects using *functions*. This is how you're actually going to do all the magic.
