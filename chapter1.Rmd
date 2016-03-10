@@ -111,7 +111,7 @@ The beauty of R is that you can store these objects for later use in your very o
 *** =sample_code
 ```{r}
 
-# Create a variable named myHello.
+# Create a variable named hello.
 hello <- "Hi there!"
 
 # Print the variable by typing it's name.
