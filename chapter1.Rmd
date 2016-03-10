@@ -303,9 +303,6 @@ do_maths(n = 10, k = 5)
 do_maths(n = 10)
 
 # If you give the arguments in the right order, you don't have to state which is which.
-do_maths(10)
-
-# So these are the same thing
 do_maths(8, 3)
 do_maths(k = 3, n = 8)
 
@@ -337,15 +334,12 @@ do_maths(n = 10, k = 5)
 do_maths(n = 10)
 
 # If you give the arguments in the right order, you don't have to state which is which.
-do_maths(10)
-
-# So these are the same thing
 do_maths(8, 3)
 do_maths(k = 3, n = 8)
 
 # Create the object 'ans' here.
 
-ans <- do_maths(20, 10 )
+ans <- do_maths(20, 10)
 
 
 
