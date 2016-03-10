@@ -9,7 +9,7 @@ description : Soft introduction to R
 Welcome. On your right you see the R editor area and below that the R console.  
 
 The way to use these two is to first write commands to the editor area (just as you would write in any text editor). 
-Then you can execute the row where your cursor is, or the rows you have highlighted by pressing Ctrl+Enter.  
+Then you can execute the row where your cursor is, or the rows you have highlighted by pressing `Ctrl + Enter`.  
 
 Output will then appear in the console. 
 
@@ -31,12 +31,13 @@ Let's try it!
 
 *** =sample_code
 ```{r}
-# I am a comment telling you that this is the R editor!
+# This is the R editor!
 
 
-# You can use R as a calculator. Execute the below line with Ctrl + Enter
+# You can use R as a calculator. Execute the below line with Ctrl + Enter.
 5 + 5
 
+# A hashtag at the beginning of the line defines the line as a comment.
 
 # Executing a comment will only print the comment, try it!
 # 5 + 5
@@ -89,18 +90,15 @@ success_msg("Good work!")
 ## R objects
 
 In R you can create and operate on things called *objects*. 
-An object is just something that knows what kind of object it is and can store information.
+An object is just something that knows it's own type and can store information such as numerical values and names.
 
 The beauty of R is that you can store these objects for later use in your very own variables using the assign operator: `<-`.
 
 
-Let's try it!
-
 *** =instructions
-- Execute the lines that define the variables `myHello` and `ans` and print their values
-- Create your own variable, called `myNname` and assign your name or nickname to it.
-- Create your own variable, called `myBD` and assign your birth decade to it (it's ok to lie)
-- Create your own variable, called `myMessage` and assign the text "you are awsome!" to it.
+- Execute the lines that define the variables `hello` and `ans` and print their values
+- Create your own variable, called `my_name` and assign your name or nickname to it.
+- Create your own variable, called `my_message` and assign the text "you are awsome!" to it.
 
 *** =hint
 - Remember that Ctrl+Enter executes a single row.
@@ -113,20 +111,20 @@ Let's try it!
 *** =sample_code
 ```{r}
 
-# create a variable named myHello
-myHello <- "Hi there!"
+# Create a variable named myHello.
+hello <- "Hi there!"
 
-# print the variable by simply typing it's name
-myHello
+# Print the variable by typing it's name.
+hello
 
-# Create a numeric variable
+# Create a numeric variable.
 ans <- 5 + 5
 
-# Do some operations with ans
+# Do some operations with ans.
 (ans/5) + 2
 
 
-# Create myName, myBD and myMessage here
+# Create my_name and my_message here.
 
 
 
@@ -135,23 +133,22 @@ ans <- 5 + 5
 *** =solution
 ```{r}
 
-# create a variable named myHello
-myHello <- "Hi there!"
+# Create a variable named hello.
+hello <- "Hi there!"
 
-# print the variable by simply typing it's name
-myHello
+# Print the variable by typing it's name.
+hello
 
-# Create a numeric variable
+# Create a numeric variable.
 ans <- 5 + 5
 
-# Do some operations with ans
+# Do some operations with ans.
 (ans/5) + 2
 
 
-# Create myName and myMessage here
-myName <- "Tuomo"
-myBD <- 80
-myMessage <- "you are awsome!"
+# Create my_name and my_message here
+my_name <- "Tuomo"
+my_message <- "you are awsome!"
 
 
 ```
@@ -159,7 +156,7 @@ myMessage <- "you are awsome!"
 *** =sct
 ```{r}
 
-test_object("myMessage")
+test_object("my_message")
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
@@ -167,7 +164,7 @@ test_object("myMessage")
 test_error()
 
 # Final message the student will see upon completing the exercise
-success_msg(paste0(myName,"_",myBD,", ", myMessage))
+success_msg(paste0(my_name, ", ", my_message))
 
 ```
 
@@ -176,16 +173,16 @@ success_msg(paste0(myName,"_",myBD,", ", myMessage))
 ## R functions
 
 
-Now that we know how to create variables that store our objects using the assign operator `<-`, the real fun can begin!
+Now that we know how to create variables that store our objects, the real fun can begin!
 
-In R you can operate on objects using *functions*. This is how we're actually going to do all the magic. During this course we will only operate on ready-made functions, but for clarity we will look at how a function is created and what are it's parts.
+In R you can operate on objects using *functions*. This is how we're actually going to do all the magic. During this course we will operate on ready-made functions, but for clarity we will look at how a function is created and what are it's parts.
 
 A function is called by typing it's name and giving it the necessary *arguments* inside parenthesis.
 
 
 *** =instructions
 - Try the function calls that are already defined
-- use the `create_nick()`- function to create a nick with name "R" and number 93.
+- use the `create_nick()`- function to create a nick with the name "R" and number 93.
 - assign the created nick to a variable called 'ans'
 
 *** =hint
@@ -201,9 +198,7 @@ add_5 <- function(n) {
 }
 
 create_nick <- function(name = "Juha", no = 86) {
-  
   paste("Your nick is: ", name, no, sep="")
-
 }
 ```
 
@@ -306,6 +301,7 @@ You have access to iris by it's name, `iris`.
 - Remember that Ctrl+Enter executes a single row.
 - All the functions take the iris data frame object as an argument. So you should type ´iris` inside the function parenthesis.
 - The `x` argument of `head(x, n)` defines the data frame and the `n` argument defines the number of observations.
+
 
 *** =pre_exercise_code
 ```{r}
