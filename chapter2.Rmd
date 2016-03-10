@@ -20,6 +20,7 @@ This exercise shows how to create bar plots with R, using package ggplot2!
 - you can always use `?function_name` for help!
   
   *** =pre_exercise_code
+```{r}
 # preload
 library(ggplot2)
 ```
