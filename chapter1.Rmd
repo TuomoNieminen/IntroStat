@@ -239,7 +239,6 @@ create_nick(no = 98, name = "Minni")
 *** =solution
 ```{r}
 
-
 # Here we call the add_5 function. (It is already defined and saved for you)
 add_5(n = 5)
 
@@ -266,7 +265,6 @@ ans <- create_nick("R", 93)
 # tests. 
 
 # test_object("name") 
-
 # test_function("name", args=c("arg1","arg2"))
 
 test_object("ans")
