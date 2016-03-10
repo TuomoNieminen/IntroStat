@@ -173,12 +173,12 @@ success_msg(paste0(myName,"_",myBD,", ", myMessage))
 
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Title
+## R functions
 
 
 Now that we know how to create variables that store our objects using the assign operator `<-`, the real fun can begin!
 
-In R you can operate on objects using *functions*. This is how we're actually going to do all the magic. During this course we will ony operate on ready-made functions, but for clarity we will look at how a function is created and what are it's parts.
+In R you can operate on objects using *functions*. This is how we're actually going to do all the magic. During this course we will only operate on ready-made functions, but for clarity we will look at how a function is created and what are it's parts.
 
 A function is called by typing it's name and giving it the necessary *arguments* inside parenthesis.
 
@@ -211,23 +211,21 @@ create_nick <- function(name = "Juha", no = 86) {
 *** =sample_code
 ```{r}
 
-# create a simple function with one argument: n
+# This code creates a simple function with one argument: n
 add_5 <- function(n) {
   result <- n + 5
   result
 }
 
-# call the add_5 function. (It is already defined and saved for you)
+# Here we call the add_5 function. (It is already defined and saved for you)
 add_5(n = 5)
 
-# functions can be more complicated and have multiple arguments. Arguments can also have default values
+# Functions can be more complicated and have multiple arguments. Arguments can also have default values
 create_nick <- function(name, no = 86) {
-  
   paste("Your nick is: ", name, no, sep="")
-
 }
 
-# call the create_nick function
+# Here we call the create_nick function
 create_nick(name="Juha")
 
 # If you give the arguments in the right order, you don't have to state which is which.
@@ -236,8 +234,7 @@ create_nick("Minni", 98)
 create_nick(no = 98, name = "Minni")
 
 
-# assign the function output to a variable 'ans' here
-
+# Create the variable 'ans' here.
 
 
 
@@ -247,19 +244,23 @@ create_nick(no = 98, name = "Minni")
 *** =solution
 ```{r}
 
-# call the add_5() function. (It is already defined and saved for you)
+
+# Here we call the add_5 function. (It is already defined and saved for you)
 add_5(n = 5)
 
-# call the crea_nick() function
+# Here we call the create_nick function
 create_nick(name="Juha")
 
 # If you give the arguments in the right order, you don't have to state which is which.
 create_nick("Juha")
-create_nick("Joni", 92)
-create_nick(no = 92, name = "Joni")
+create_nick("Minni", 98)
+create_nick(no = 98, name = "Minni")
 
-# assign the function output to a variable 'ans' here
+
+# Assign the function output to a variable 'ans' here
+
 ans <- create_nick("R", 93)
+
 
 
 ```
@@ -291,15 +292,20 @@ success_msg("Great job!")
 
 The most common object to operate on is the `data frame` object, which stores data in tabular form.
 
-Here we will look at some of the functions that are helpful for inspecting a data frame: `head()`, `tail()`, `str()`, `names()`. We will use an R data set called `iris`, which contains information about different flower species.
+Here we will look at some of the functions that are helpful for inspecting a data frame: `str()`, `names()`, `head()`, `tail()`,  We will use an R data frame called `iris`, which contains information about different flower species.
 
-
+You have access to iris by it's name, `iris`.
 
 *** =instructions
-- 
+- Use the `names()` function to see which variables are in the iris data frame
+- Use the `str()` function to look at the structure of `iris` and the type of it's variables
+- Use the the command `?head` to see the help page on head. Then use `head()` to see the first 5 observations of iris.
+- Guess what the `tail()` function does?
 
 *** =hint
 - Remember that Ctrl+Enter executes a single row.
+- All the functions take the iris data frame object as an argument. So you should type ´iris` inside the function parenthesis.
+- The `x` argument of `head(x, n)` defines the data frame and the `n` argument defines the number of observations.
 
 *** =pre_exercise_code
 ```{r}
@@ -309,7 +315,13 @@ Here we will look at some of the functions that are helpful for inspecting a dat
 *** =sample_code
 ```{r}
 
-# sample code
+# Look at the variables of iris
+
+
+# Look at the structure of iris
+
+
+# Look at the top 5 rows of iris
 
 
 
@@ -318,7 +330,14 @@ Here we will look at some of the functions that are helpful for inspecting a dat
 *** =solution
 ```{r}
 
-# solution
+# Look at the variables of iris
+names(iris)
+
+# Look at the structure of iris
+str(iris)
+
+# Look at the top 5 rows of iris
+head(iris, n = 5)
 
 
 ```
@@ -326,6 +345,9 @@ Here we will look at some of the functions that are helpful for inspecting a dat
 *** =sct
 ```{r}
 
+test_function("names",args="x")
+test_function("str",args="x")
+test_function("head", args=c("x","n"))
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
