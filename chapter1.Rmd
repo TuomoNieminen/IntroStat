@@ -13,7 +13,7 @@ Then you can execute the row where your cursor is, or the rows you have highligh
 
 Output will then appear in the console. 
 
-Let's try it!
+Try it!
   
 *** =instructions
 - Follow the instructions in the sript and use R as a calculator
@@ -47,7 +47,7 @@ Let's try it!
 
 
 
-# Below me is the R console, where you will see output
+# Belo is the R console, where you will see output
 
 ```
 
@@ -68,7 +68,7 @@ Let's try it!
 
 
 
-# Below me is the R console, where you will see output
+# Below is the R console, where you will see output
 
 ```
 
@@ -86,19 +86,19 @@ success_msg("Good work!")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:50 skills:1
 ## R objects
 
 In R you can create and operate on things called *objects*. 
 An object is just something that knows it's own type and can store information such as numerical values and names.
 
-The beauty of R is that you can store these objects for later use in your very own variables using the assign operator: `<-`.
+The beauty of R is that you can store these objects for later use  using the assign operator: `<-`.
 
 
 *** =instructions
-- Execute the lines that define the variables `hello` and `ans` and print their values
-- Create your own variable, called `my_name` and assign your name or nickname to it.
-- Create your own variable, called `my_message` and assign the text "you are awsome!" to it.
+- Execute the lines that define the objects `hello` and `ans` and print their values
+- Assign you name or nickname to `my_name`
+- Assign the text "you are awsome!" to `my_message`
 
 *** =hint
 - Remember that Ctrl+Enter executes a single row.
@@ -111,20 +111,24 @@ The beauty of R is that you can store these objects for later use in your very o
 *** =sample_code
 ```{r}
 
-# Create a variable named hello.
+# Create an object and save it to memory
 hello <- "Hi there!"
 
-# Print the variable by typing it's name.
+# Print the object by typing it's name
 hello
 
-# Create a numeric variable.
-ans <- 5 + 5
+# Create a numeric object
+i_am_a_number <- 5 + 5
 
-# Do some operations with ans.
-(ans/5) + 2
+# Do further calculations with the object
+(i_am_a_number/5) + 2
+
+# You can override the value of hello by assigning a new value to it
+hello <- i_am_a_number
+hello
 
 
-# Create my_name and my_message here.
+# Create my_name and my_message here
 
 
 
@@ -133,20 +137,24 @@ ans <- 5 + 5
 *** =solution
 ```{r}
 
-# Create a variable named hello.
+# Create an object and save it to memory
 hello <- "Hi there!"
 
-# Print the variable by typing it's name.
+# Print the object by typing it's name
 hello
 
-# Create a numeric variable.
-ans <- 5 + 5
+# Create a numeric object
+i_am_a_number <- 5 + 5
 
-# Do some operations with ans.
-(ans/5) + 2
+# Do further calculations with the object
+(i_am_a_number/5) + 2
+
+# You can override the value of hello by assigning a new value to it
+hello <- i_am_a_number
+hello
 
 
-# Create my_name and my_message here
+# Create my_name and my_message here.
 my_name <- "Tuomo"
 my_message <- "you are awsome!"
 
@@ -168,38 +176,108 @@ success_msg(paste0(my_name, ", ", my_message))
 
 ```
 
+--- type:NormalExercise lang:r xp:100 skills:1
+## R data frames
+
+The most common object to operate on is the `data frame` object, which stores data in tabular form.
+
+In R, the basic idea is to use *functions* to operate on objects. Here you will get to apply some functions that are helpful for inspecting data: `head()` and `summary()`.
+
+You will also learn how to access the columns of a data frame using the `$` sign.
+
+You can use an R data frame called `iris`, which contains information about different flower species. You have access to iris by it's name, `iris`.
+
+*** =instructions
+- Use `summary()` to get a summary of the variable Petal.Length in `iris`
+
+*** =hint
+- Remember that Ctrl + Enter executes a single row
+- The correct answer is of the form `function(iris$column_name)`
+
+
+*** =pre_exercise_code
+```{r}
+```
+
+
+*** =sample_code
+```{r}
+
+# Functions take arguments inside the parenthesis. Take a peek of iris
+head(iris)
+
+# You can use the $ sign to access columns.
+mean(iris$Sepal.Length)
+
+
+# Create a summary of Petal.Width
+
+
+
+```
+
+*** =solution
+```{r}
+
+# Functions take objects as arguments inside the parenthesis. Take a peek of iris.
+head(iris)
+
+# You can use the $-sign to access columns
+mean(iris$Sepal.Length)
+
+
+# Create a summary of Petal.Width
+
+
+
+```
+
+*** =sct
+```{r}
+
+test_function("summary", args="object")
+
+# It's always smart to include the following line of code at the end of your SCTs
+# It will check whether executing the student's code resulted in an error, 
+# and if so, will cause the exercise to fail
+test_error()
+
+# Final message the student will see upon completing the exercise
+success_msg("Good work!")
+
+```
+
 
 --- type:NormalExercise lang:r xp:100 skills:1
 ## R functions
 
 
-Now that we know how to create variables that store our objects, the real fun can begin!
+As we just saw, in R you can operate on objects using *functions*. This is how you're actually going to do all the magic.
 
-In R you can operate on objects using *functions*. This is how we're actually going to do all the magic. During this course we will operate on ready-made functions, but for clarity we will look at how a function is created and what are it's parts.
+During this course you will operate on ready-made functions, but for clarity we will look at some of the details of functions.
 
 A function is called by typing it's name and giving it the necessary *arguments* inside parenthesis.
 
 
 *** =instructions
-- Try the function calls that are already defined
-- use the `create_nick()`- function to create a nick with the name "R" and number 93.
-- assign the created nick to a variable called 'ans'
+- Try the functions that are already defined
+- Use `do_maths()` with `n` equal to 20 and `k` equal to 10.
+- Create object 'ans' by assigning the above requested value to it.
 
 *** =hint
 - Remember that the editor code is executed line by line with Ctrl + Enter
-- Assignment is done with the `<-` operator: `variable_name <- function_name(arguments)
+- Assignment is done with the `<-` operator: `object <- function(arguments)`
 
 *** =pre_exercise_code
 ```{r}
 # code to preload datasets etc
-add_5 <- function(n) {
-  result <- n + 5
-  result
-}
 
-create_nick <- function(name = "Juha", no = 86) {
-  paste("Your nick is: ", name, no, sep="")
+add_5 <- function(n) {
+  n + 5
 }
+do_maths <- function(n, k = 5) {
+n * k - n + k / k
+  }
 ```
 
 
@@ -208,28 +286,30 @@ create_nick <- function(name = "Juha", no = 86) {
 
 # This code creates a simple function with one argument: n
 add_5 <- function(n) {
-  result <- n + 5
-  result
+  n + 5
 }
 
 # Here we call the add_5 function. (It is already defined and saved for you)
 add_5(n = 5)
+add_5(n = -5)
 
 # Functions can be more complicated and have multiple arguments. Arguments can also have default values
-create_nick <- function(name, no = 86) {
-  paste("Your nick is: ", name, no, sep="")
-}
+do_maths <- function(n, k = 5) {
+n * k - n + k / k
+  }
 
-# Here we call the create_nick function
-create_nick(name="Juha")
+# Here we call the do_maths function. k equals 5 by default so these two lines are equal
+do_maths(n = 10, k = 5)
+do_maths(n = 10)
 
 # If you give the arguments in the right order, you don't have to state which is which.
-create_nick("Juha")
-create_nick("Minni", 98)
-create_nick(no = 98, name = "Minni")
+do_maths(10)
 
+# So these are the same thing
+do_maths(8, 3)
+do_maths(k = 3, n = 8)
 
-# Create the variable 'ans' here.
+# Create the object 'ans' here.
 
 
 
@@ -239,21 +319,33 @@ create_nick(no = 98, name = "Minni")
 *** =solution
 ```{r}
 
+# This code creates a simple function with one argument: n
+add_5 <- function(n) {
+  n + 5
+}
+
 # Here we call the add_5 function. (It is already defined and saved for you)
 add_5(n = 5)
 
-# Here we call the create_nick function
-create_nick(name="Juha")
+# Functions can be more complicated and have multiple arguments. Arguments can also have default values
+do_maths <- function(n, k = 5) {
+n * k - n + k / k
+  }
+
+# Here we call the do_maths function. k = 5 by default so the two lines are equal
+do_maths(n = 10, k = 5)
+do_maths(n = 10)
 
 # If you give the arguments in the right order, you don't have to state which is which.
-create_nick("Juha")
-create_nick("Minni", 98)
-create_nick(no = 98, name = "Minni")
+do_maths(10)
 
+# So these are the same thing
+do_maths(8, 3)
+do_maths(k = 3, n = 8)
 
-# Assign the function output to a variable 'ans' here
+# Create the object 'ans' here.
 
-ans <- create_nick("R", 93)
+ans <- do_maths(20, 10 )
 
 
 
@@ -279,26 +371,18 @@ success_msg("Great job!")
 
 ```
 
-
 --- type:NormalExercise lang:r xp:100 skills:1
-## R data frames
+## Vectors and more data frames
 
-The most common object to operate on is the `data frame` object, which stores data in tabular form.
-
-Here we will look at some of the functions that are helpful for inspecting a data frame: `str()`, `names()`, `head()`, `tail()`,  We will use an R data frame called `iris`, which contains information about different flower species.
-
-You have access to iris by it's name, `iris`.
+info about vectors
 
 *** =instructions
-- Use the `names()` function to see which variables are in the iris data frame
-- Use the `str()` function to look at the structure of `iris` and the type of it's variables
-- Use the the command `?head` to see the help page on head. Then use `head()` to see the first 5 observations of iris.
-- Guess what the `tail()` function does?
+- Use `?quantile` to see the help page on `quantile`
+- Use an online resource to find the connection of percentiles and quantiles
+- Compute the 25th, 50th and 75th percentiles of Sepal.Length.
 
 *** =hint
-- Remember that Ctrl+Enter executes a single row.
-- All the functions take the iris data frame object as an argument. So you should type ´iris` inside the function parenthesis.
-- The `x` argument of `head(x, n)` defines the data frame and the `n` argument defines the number of observations.
+-  you need two give 2 arguments to `quantile()`
 
 
 *** =pre_exercise_code
@@ -309,13 +393,9 @@ You have access to iris by it's name, `iris`.
 *** =sample_code
 ```{r}
 
-# Look at the variables of iris
 
 
-# Look at the structure of iris
-
-
-# Look at the top 5 rows of iris
+# Get the 25th, 50th and 75th percentile of Sepal.Width
 
 
 
@@ -324,14 +404,11 @@ You have access to iris by it's name, `iris`.
 *** =solution
 ```{r}
 
-# Look at the variables of iris
-names(iris)
 
-# Look at the structure of iris
-str(iris)
+# Get the 25th, 50th and 75th percentile of Sepal.Width
+quantile(iris$Sepal.Length, probs = c(0.25, 0.5, 0.75))
 
-# Look at the top 5 rows of iris
-head(iris, n = 5)
+
 
 
 ```
@@ -339,9 +416,6 @@ head(iris, n = 5)
 *** =sct
 ```{r}
 
-test_function("names",args="x")
-test_function("str",args="x")
-test_function("head", args=c("x","n"))
 
 # It's always smart to include the following line of code at the end of your SCTs
 # It will check whether executing the student's code resulted in an error, 
@@ -349,6 +423,6 @@ test_function("head", args=c("x","n"))
 test_error()
 
 # Final message the student will see upon completing the exercise
-success_msg(paste0(myName,"_",myBD,", ", myMessage))
+success_msg("Good work!")
 
 ```
