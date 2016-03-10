@@ -96,7 +96,7 @@ The beauty of R is that you can store these objects for later use  using the ass
 
 
 *** =instructions
-- Execute the lines that define the objects `hello` and `ans` and print their values
+- Execute the lines that define the objects `hello` and `i_am_numeric` and print their values
 - Assign your name or nickname to `my_name`
 - Assign the text "you're awsome!" to `my_message`
 
@@ -118,13 +118,13 @@ hello <- "Hi there!"
 hello
 
 # Create a numeric object
-i_am_a_number <- 5 + 5
+i_am_numeric <- 5 + 5
 
 # Do further calculations with the object
-(i_am_a_number/5) + 2
+(i_am_numeric/5) + 2
 
 # You can override the value of hello by assigning a new value to it
-hello <- i_am_a_number
+hello <- i_am_numeric
 hello
 
 
@@ -144,13 +144,13 @@ hello <- "Hi there!"
 hello
 
 # Create a numeric object
-i_am_a_number <- 5 + 5
+i_am_numeric <- 5 + 5
 
 # Do further calculations with the object
-(i_am_a_number/5) + 2
+(i_am_numeric/5) + 2
 
 # You can override the value of hello by assigning a new value to it
-hello <- i_am_a_number
+hello <- i_am_numeric
 hello
 
 
