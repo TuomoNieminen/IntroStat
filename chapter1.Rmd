@@ -1,13 +1,17 @@
 ---
 title       : Meet R
 description : Soft introduction to R
+attachments :
 
 --- type:NormalExercise lang:r xp:50 skills:1
+
 ## Basic tools
 
-Welcome. On your right you see the R editor area and below that the R console. 
+Welcome. On your right you see the R editor area and below that the R console.  
+
 The way to use these two is to first write commands to the editor area (just as you would write in any text editor). 
-Then you can execute the row where your cursor is, or the rows you have highlighted by pressing Ctrl+Enter. 
+Then you can execute the row where your cursor is, or the rows you have highlighted by pressing Ctrl+Enter.  
+
 Output will then appear in the console. 
 
 Let's try it!
@@ -19,6 +23,10 @@ Let's try it!
 
 *** =hint
 - Remember that Ctrl+Enter executes a single row.
+
+
+*** =pre_exercise_code
+```
 
 
 *** =sample_code
@@ -39,6 +47,7 @@ Let's try it!
 
 
 # Below me is the R console, where you will see output
+
 ```
 
 *** =solution
@@ -59,6 +68,7 @@ Let's try it!
 
 
 # Below me is the R console, where you will see output
+
 ```
 
 *** =sct
@@ -93,6 +103,7 @@ Let's try it!
 
 *** =pre_exercise_code
 ```
+
 
 *** =sample_code
 ```{r}
