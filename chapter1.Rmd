@@ -99,7 +99,7 @@ Let's try it!
 - Execute the lines that define the variables `myHello` and `ans` and print their values
 - Create your own variable, called `myNname` and assign your name or nickname to it.
 - Create your own variable, called `myBD` and assign your birth decade to it (it's ok to lie)
-- Create your own variable, called `myMessage` and assign the text "You are awsome" to it.
+- Create your own variable, called `myMessage` and assign the text "you are awsome!" to it.
 
 *** =hint
 - Remember that Ctrl+Enter executes a single row.
