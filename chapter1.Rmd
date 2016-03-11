@@ -238,7 +238,7 @@ success_msg("Good work!")
 
 
 --- type:NormalExercise lang:r xp:150 skills:1
-## Function arguments
+## Functions and arguments
 
 
 As we just saw, in R you can operate on objects using *functions*. This is how you're actually going to do all the magic.
