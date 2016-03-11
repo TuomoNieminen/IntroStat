@@ -299,7 +299,7 @@ do_maths(8, 3)
 do_maths(k = 3, n = 8)
 
 
-# Call do_maths and create the object 'ans' here.
+# Call do_maths() and create the object 'ans' here.
 
 
 
