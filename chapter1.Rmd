@@ -275,14 +275,14 @@ n * k - n + k / k
 
 # Below are the definitions of two functions: add_5() and do_maths(). The goal of this exercise is to understand how to use them.
 
-# This code creates a simple function with one argument: n. add5() adds 5 to n when it is called and returns the result.
+# add_5() is a simple function with one argument: n. add_5() adds 5 to n when it is called and returns the result.
 add_5 <- function(n) {
   n + 5
 }
 # Functions can be more complicated and have multiple arguments. Arguments can also have default values.
 do_maths <- function(n, k = 5) {
-n * k - n + k / k
-  }
+  n * k - n + k / k
+}
 
 
 # Here we call the add_5 function twice. ( add_5 is already saved in memory )
