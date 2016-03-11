@@ -6,7 +6,7 @@ description : Soft introduction to R
 
 ## Basic tools
 
-Welcome. On your right you see the R editor area and below that the R console.  
+Welcome! On your right you see the R editor area and below that the R console.  
 
 The way to use these two is to first write commands to the editor area (just as you would write in any text editor). 
 Then you can execute the row where your cursor is, or the rows you have highlighted by pressing `Ctrl + Enter`.  
@@ -53,22 +53,6 @@ Try it!
 
 *** =solution
 ```{r}
-# I am a comment telling you that this is the R editor!
-
-
-# You can use R as a calculator. Execute the below line with Ctrl + Enter
-5 + 5
-
-
-# Executing a comment will only print the comment, try it!
-# 5 + 5
-
-
-# Try your own calculations below, and execute them
-
-
-
-# Below is the R console, where you will see output
 
 ```
 
@@ -86,7 +70,7 @@ success_msg("Good work!")
 ```
 
 
---- type:NormalExercise lang:r xp:50 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Objects
 
 In R you can create and operate on things called *objects*. 
@@ -164,19 +148,17 @@ my_message <- "you are awsome!"
 *** =sct
 ```{r}
 
+test_object("hello")
+test_output_contains("hello")
 test_object("my_message")
 
-# It's always smart to include the following line of code at the end of your SCTs
-# It will check whether executing the student's code resulted in an error, 
-# and if so, will cause the exercise to fail
 test_error()
 
-# Final message the student will see upon completing the exercise
 success_msg(paste0(my_name, ", ", my_message))
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1,3
 ## Data frames
 
 The most common object to operate on is the `data frame` object, which stores data in tabular form.
@@ -188,11 +170,12 @@ You will also learn how to access the columns of a data frame using the `$` sign
 You can use an R data frame called `iris`, which contains information about different flower species. You have access to iris by it's name, `iris`.
 
 *** =instructions
-- Use `summary()` to get a summary of the variable Petal.Length in `iris`
+- Execute the functions `head()` and `mean()`
+- Use `summary()` and `$` to create a summary of `Petal.Width` in `iris`
 
 *** =hint
 - Remember that Ctrl + Enter executes a single row
-- The correct answer is of the form `function(iris$column_name)`
+- The correct answer is of the form `function(iris$column)`
 
 
 *** =pre_exercise_code
@@ -203,14 +186,18 @@ You can use an R data frame called `iris`, which contains information about diff
 *** =sample_code
 ```{r}
 
-# Functions take arguments inside the parenthesis. Take a peek of iris
+# Functions take arguments inside the parenthesis. Take a peek of iris.
 head(iris)
 
-# You can use the $ sign to access columns.
+# You can use ?function or help(function) to open a help page.
+?mean
+
+# You can use the $-sign to access columns. Here we compute the mean of sepal lengths.
 mean(iris$Sepal.Length)
 
 
 # Create a summary of Petal.Width
+
 
 
 
@@ -222,11 +209,11 @@ mean(iris$Sepal.Length)
 # Functions take objects as arguments inside the parenthesis. Take a peek of iris.
 head(iris)
 
-# You can use the $-sign to access columns
+# You can use the $-sign to access columns. Here you can calculcate the mean of sepal lengths.
 mean(iris$Sepal.Length)
 
-
 # Create a summary of Petal.Width
+summary(iris$Petal.Width)
 
 
 
@@ -235,14 +222,13 @@ mean(iris$Sepal.Length)
 *** =sct
 ```{r}
 
-test_function("summary", args="object")
+test_function("head",args="x")
+test_function("mean",args="x")
+test_function("summary", args="object", 
+              incorrect_msg="Did you make a summary of the Petal.Width column in iris, using $ to access it?")
 
-# It's always smart to include the following line of code at the end of your SCTs
-# It will check whether executing the student's code resulted in an error, 
-# and if so, will cause the exercise to fail
 test_error()
 
-# Final message the student will see upon completing the exercise
 success_msg("Good work!")
 
 ```
@@ -254,19 +240,19 @@ success_msg("Good work!")
 
 As we just saw, in R you can operate on objects using *functions*. This is how you're actually going to do all the magic.
 
-During this course you will operate on ready-made functions, but for clarity we will look at some of the details of functions.
+During this course you will operate on ready-made functions, but for clarity we will look at some of the details of how functions are built.
 
 A function is called by typing it's name and giving it the necessary *arguments* inside parenthesis.
 
 
 *** =instructions
-- Try the functions that are already defined
-- Use `do_maths()` with `n` equal to 20 and `k` equal to 10.
-- Create object 'ans' by assigning the above requested value to it.
+- Try the functions that are defined.
+- Call `do_maths()` functio with `n` equal to 20 and `k` equal to 10.
+- Create object 'ans' by assigning the requested value of `do_maths()`to it.
 
 *** =hint
-- Remember that the editor code is executed line by line with Ctrl + Enter
-- Assignment is done with the `<-` operator: `object <- function(arguments)`
+- Assignment is done with the `<-` operator.
+- The answer is of the form: `object <- function(arguments)`
 
 *** =pre_exercise_code
 ```{r}
@@ -306,7 +292,8 @@ do_maths(n = 10)
 do_maths(8, 3)
 do_maths(k = 3, n = 8)
 
-# Create the object 'ans' here.
+
+# Call do maths and create the object 'ans' here.
 
 
 
@@ -316,29 +303,8 @@ do_maths(k = 3, n = 8)
 *** =solution
 ```{r}
 
-# This code creates a simple function with one argument: n
-add_5 <- function(n) {
-  n + 5
-}
-
-# Here we call the add_5 function. (It is already defined and saved for you)
-add_5(n = 5)
-
-# Functions can be more complicated and have multiple arguments. Arguments can also have default values
-do_maths <- function(n, k = 5) {
-n * k - n + k / k
-  }
-
-# Here we call the do_maths function. k = 5 by default so the two lines are equal
-do_maths(n = 10, k = 5)
-do_maths(n = 10)
-
-# If you give the arguments in the right order, you don't have to state which is which.
-do_maths(8, 3)
-do_maths(k = 3, n = 8)
-
-# Create the object 'ans' here.
-
+# Call do maths and create the object 'ans' here.
+do_maths(20, 10)
 ans <- do_maths(20, 10)
 
 
@@ -348,35 +314,35 @@ ans <- do_maths(20, 10)
 *** =sct
 ```{r}
 
-# tests. 
+# tests
 
-# test_object("name") 
-# test_function("name", args=c("arg1","arg2"))
-
+test_function("do_maths",args=c("n","k"))
 test_object("ans")
 
-# It's always smart to include the following line of code at the end of your SCTs
-# It will check whether executing the student's code resulted in an error, 
-# and if so, will cause the exercise to fail
 test_error()
 
-# Final message the student will see upon completing the exercise
 success_msg("Great job!")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:150 skills:1,3
 ## Vectors and more data frames
 
-info about vectors
+You can combine values of the same basic type to a *vector*, using the function `c()`. 
+
+A vector is an object containing multiple elements. Vectors are quite important in R. The columns a data frame (such as `iris`) are vectors.
+
+In this execrice you will learn how to create your own vector and use it as an argument in a function.
 
 *** =instructions
-- Use `?quantile` to see the help page on `quantile`
-- Use an online resource to find the connection of percentiles and quantiles
-- Compute the 25th, 50th and 75th percentiles of Sepal.Length.
+- Use `?quantile` to see the help page on `quantile` and look at the arguments of the default method.
+- Use any available resource to find the connection between percentiles and quantiles
+- Define a vector object that includes the quantile probabilities corresponding to the 25th, 50th, and 75th percentiles.
+- Compute the 25th, 50th and 75th percentiles of Sepal.Length using `quantile()`.
 
 *** =hint
--  you need two give 2 arguments to `quantile()`
+-  you need two give 2 arguments to `quantile()`: `x` and `probs`.
+- Use `c()` to define `probs`.
 
 
 *** =pre_exercise_code
@@ -387,10 +353,18 @@ info about vectors
 *** =sample_code
 ```{r}
 
+# Here we create a vector with numeric elements
+c(2, 3, 4, 5)
 
+# Another one
+c(0.1, 0.2, 5.84, 0.7)
 
-# Get the 25th, 50th and 75th percentile of Sepal.Width
+# This time we'll save it and then compute it's range
+my_vector <- c(0.1, 0.2, 5.84, 0.7)
+range(my_vector)
 
+# Get the 25th, 50th and 75th percentile of Sepal.Width using quantile()
+?quantile
 
 
 ```
@@ -398,10 +372,8 @@ info about vectors
 *** =solution
 ```{r}
 
-
 # Get the 25th, 50th and 75th percentile of Sepal.Width
 quantile(iris$Sepal.Length, probs = c(0.25, 0.5, 0.75))
-
 
 
 
@@ -410,13 +382,12 @@ quantile(iris$Sepal.Length, probs = c(0.25, 0.5, 0.75))
 *** =sct
 ```{r}
 
+test_function("quantile", args=c("x","probs"),
+              incorrect_answer = "Did you call `quantile()` with two arguments: `x` and `probs` ? ")
 
-# It's always smart to include the following line of code at the end of your SCTs
-# It will check whether executing the student's code resulted in an error, 
-# and if so, will cause the exercise to fail
 test_error()
 
 # Final message the student will see upon completing the exercise
-success_msg("Good work!")
+success_msg("Great work, that was a tough one!")
 
 ```
