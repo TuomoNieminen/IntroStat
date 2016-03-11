@@ -165,12 +165,12 @@ The most common object to operate on is the `data frame` object, which stores da
 
 In R, the basic idea is to use *functions* to operate on objects. Here you will get to apply some functions that are helpful for inspecting data: `head()` and `summary()`.
 
-You will also learn how to access the columns of a data frame using the `$` sign.
+You will also learn how to access the columns of a data frame using the `$`-sign.
 
 You can use an R data frame called `iris`, which contains information about different flower species. You have access to iris by it's name, `iris`.
 
 *** =instructions
-- Execute the functions `head()` and `mean()`
+- Execute the functions `head()` and `mean()` and see the help page of `mean()`
 - Use `summary()` and `$` to create a summary of `Petal.Width` in `iris`
 
 *** =hint
@@ -192,7 +192,7 @@ head(iris)
 # You can use ?function or help(function) to open a help page.
 ?mean
 
-# You can use the $-sign to access columns. Here we compute the mean of sepal lengths.
+# You can use the $-sign to access columns of a data frame. Here we compute the mean of sepal lengths.
 mean(iris$Sepal.Length)
 
 
@@ -240,14 +240,14 @@ success_msg("Good work!")
 
 As we just saw, in R you can operate on objects using *functions*. This is how you're actually going to do all the magic.
 
-During this course you will operate on ready-made functions, but for clarity we will look at some of the details of how functions are built.
+During this course you will operate on ready-made functions, but for clarity we will look at some of the details on how functions are built.
 
 A function is called by typing it's name and giving it the necessary *arguments* inside parenthesis.
 
 
 *** =instructions
-- Try the functions that are defined.
-- Call `do_maths()` functio with `n` equal to 20 and `k` equal to 10.
+- Execute the function calls that are defined.
+- Call the `do_maths()` function with `n` equal to 20 and `k` equal to 10.
 - Create object 'ans' by assigning the requested value of `do_maths()`to it.
 
 *** =hint
@@ -275,7 +275,7 @@ add_5 <- function(n) {
   n + 5
 }
 
-# Here we call the add_5 function. (It is already defined and saved for you)
+# Here we call the add_5 function twice. ( add_5() is already and saved in memory )
 add_5(n = 5)
 add_5(n = -5)
 
@@ -284,7 +284,7 @@ do_maths <- function(n, k = 5) {
 n * k - n + k / k
   }
 
-# Here we call the do_maths function. k equals 5 by default so these two lines are equal
+# Here we call the do_maths function twice. k equals 5 by default so these two calls are equal
 do_maths(n = 10, k = 5)
 do_maths(n = 10)
 
@@ -335,14 +335,16 @@ A vector is an object containing multiple elements. Vectors are quite important 
 In this execrice you will learn how to create your own vector and use it as an argument in a function.
 
 *** =instructions
-- Use `?quantile` to see the help page on `quantile` and look at the arguments of the default method.
+- See and execute the examples on how to create a vector
 - Use any available resource to find the connection between percentiles and quantiles
-- Define a vector object that includes the quantile probabilities corresponding to the 25th, 50th, and 75th percentiles.
-- Compute the 25th, 50th and 75th percentiles of Sepal.Length using `quantile()`.
+- Define a vector `p` that includes the quantile probabilities corresponding to the 25th, 50th, and 75th percentiles.
+- Use `?quantile` to see the help page on `quantile` and look at the arguments of the default method.
+- Compute the 25th, 50th and 75th percentiles of the Petal.Length column in `iris` using `quantile()`.
 
 *** =hint
--  you need two give 2 arguments to `quantile()`: `x` and `probs`.
-- Use `c()` to define `probs`.
+- Remember that `$` can be used to access a column of a data frame
+- Use `c()` to define `p`.
+- You need two give 2 arguments to `quantile()`: `x` and `probs`.
 
 
 *** =pre_exercise_code
@@ -363,7 +365,12 @@ c(0.1, 0.2, 5.84, 0.7)
 my_vector <- c(0.1, 0.2, 5.84, 0.7)
 range(my_vector)
 
-# Get the 25th, 50th and 75th percentile of Sepal.Width using quantile()
+
+# Define a vector p of quantile probabilities corrsponding to the 25th, 50th and 75th percentiles
+
+
+
+# Get the 25th, 50th and 75th percentile of Sepal.Width in iris, using quantile()
 ?quantile
 
 
@@ -372,8 +379,11 @@ range(my_vector)
 *** =solution
 ```{r}
 
+# Define a vector p of quantile probabilities corrsponding to the 25th, 50th and 75th percentiles
+p <- c(0.25, 0.5, 0.75)
+
 # Get the 25th, 50th and 75th percentile of Sepal.Width
-quantile(iris$Sepal.Length, probs = c(0.25, 0.5, 0.75))
+quantile(iris$Petal.Length, probs = p)
 
 
 
@@ -382,8 +392,10 @@ quantile(iris$Sepal.Length, probs = c(0.25, 0.5, 0.75))
 *** =sct
 ```{r}
 
+test_object("p", incorrect_msg="The vector p should include 3 elements corresponding to the 25th, 50th and 75th percentiles.")
+
 test_function("quantile", args=c("x","probs"),
-              incorrect_answer = "Did you call `quantile()` with two arguments: `x` and `probs` ? ")
+              incorrect_answer = "Did you call `quantile()` with two arguments?")
 
 test_error()
 
