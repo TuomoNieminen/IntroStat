@@ -250,7 +250,7 @@ A function is an object that can be *called* by typing it's name and giving it t
 
 *** =instructions
 - Execute the function calls that are defined.
-- Call the `do_maths()` function with `n` equal to 20 and `k` equal to 10.
+- Call the `do_maths()` function with `n` equal to `20` and `k` equal to `10`.
 - Create object 'ans' by assigning the requested value of `do_maths()`to it.
 
 *** =hint
