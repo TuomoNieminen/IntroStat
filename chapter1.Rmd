@@ -474,7 +474,9 @@ Earlier we saw that `summary()` knows to give different output when it's argumen
 
 A good way to get information about an object is the `str()` function. It prints out the given objects class and structure.
 
-Inspect the structure of `iris` using `str()`. What is the class of `Species` in `iris`
+Inspect the structure of `iris` by using `str()`. Type your code directly to the R console and execute the code by pressing `Enter`.
+
+What is the class of `Species` in `iris`?
 
 
 *** =instructions
@@ -492,18 +494,6 @@ Inspect the structure of `iris` using `str()`. What is the class of `Species` in
 ```
 
 
-*** =sample_code
-```{r}
-
-# See the structure of a simple numerical object
-str(5)
-
-
-# Take a look at the structure of iris here
-
-
-
-```
 
 
 *** =sct
@@ -514,7 +504,7 @@ str(5)
 test_error()
 
 msg1 = "Sorry, string is not a class in R."
-msg2 = "Numeric is a class in R, but is it not correct here, even though you can see from str() that Species has numbers as labels."
+msg2 = "Numeric is a class in R, but is it not correct here, even though Species has numbers as labels."
 msg3 = "Yes! it is indeed a factor!"
 msg4 = "Character is a class in R, but it is not correct here."
 test_mc(correct=3, feedback_msgs=c(msg1, msg2, msg3, msg4))
