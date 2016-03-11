@@ -370,7 +370,7 @@ range(my_vector)
 
 
 
-# Get the 25th, 50th and 75th percentile of Sepal.Width in iris, using quantile()
+# Get the 25th, 50th and 75th percentile of Sepal.Width in iris, using quantile(). Use the vector you created above as one of the arguments of quantile().
 ?quantile
 
 
@@ -403,3 +403,4 @@ test_error()
 success_msg("Great work, that was a tough one!")
 
 ```
+
