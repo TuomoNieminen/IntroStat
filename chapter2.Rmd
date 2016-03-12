@@ -1,6 +1,6 @@
 ---
-  title       : InroStat 2
-description : test (plotting)
+  title       : Graphical exploration
+description : UNDER CONSTRUCTION
 
 --- type:NormalExercise lang:r xp:100 skills:1
 ## Barplots
