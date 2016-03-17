@@ -85,7 +85,7 @@ The beauty of R is that you can store these objects for later use  using the ass
 *** =instructions
 - Execute the lines that define the objects `hello` and `i_am_numeric` and print their values
 - Assign your name or nickname to `my_name`
-- Assign the text "you are awsome!" to `my_message`. Use quotation marks to define an object containing text.
+- Assign the text "you are awesome!" to `my_message`. Use quotation marks to define an object containing text.
 
 *** =hint
 - Remember that Ctrl+Enter executes a single row.
