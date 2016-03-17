@@ -85,7 +85,7 @@ The beauty of R is that you can store these objects for later use  using the ass
 *** =instructions
 - Execute the lines that define the objects `hello` and `i_am_numeric` and print their values
 - Assign your name or nickname to `my_name`
-- Assign the text "you're awsome!" to `my_message`
+- Assign the text "you are awsome!" to `my_message`. Use quotation marks to define a text object.
 
 *** =hint
 - Remember that Ctrl+Enter executes a single row.
@@ -151,8 +151,6 @@ my_message <- "you are awsome!"
 *** =sct
 ```{r}
 
-test_object("hello")
-test_output_contains("hello")
 test_object("my_message")
 
 test_error()
@@ -212,7 +210,7 @@ mean(iris$Sepal.Length)
 # Functions take objects as arguments inside the parenthesis. Take a peek of iris.
 head(iris)
 
-# You can use the $-sign to access columns. Here you can calculcate the mean of sepal lengths.
+# You can use the $-sign to access columns. Here we calculcate the mean of sepal lengths.
 mean(iris$Sepal.Length)
 
 # Create a summary of Petal.Width
@@ -225,8 +223,6 @@ summary(iris$Petal.Width)
 *** =sct
 ```{r}
 
-test_function("head",args="x")
-test_function("mean",args="x")
 test_function("summary", args="object", 
               incorrect_msg="Did you create a summary of the Petal.Width column in iris, using `$` to access it?")
 
@@ -249,7 +245,7 @@ A function is an object that can be *called* by typing it's name and giving it t
 
 
 *** =instructions
-- Execute the function calls that are defined.
+- Execute the function calls that are defined (use Ctrl + Enter as before!)
 - Call the `do_maths()` function with `n` equal to `20` and `k` equal to `10`.
 - Create object 'ans' by assigning the requested value of `do_maths()`to it.
 
@@ -279,16 +275,14 @@ n * k - n + k / k
 add_5 <- function(n) {
   n + 5
 }
-# Functions can be more complicated and have multiple arguments. Arguments can also have default values.
+# Functions can be more complicated and have multiple arguments. Arguments can also have default values. do_maths() has two arguments.
 do_maths <- function(n, k = 5) {
   n * k - n + k / k
 }
 
-
 # Here we call the add_5 function twice. ( add_5 is already saved in memory )
 add_5(n = 5)
 add_5(-5)
-
 
 # Here we call the do_maths function twice.
 do_maths(n = 10, k = 5)
@@ -310,7 +304,6 @@ do_maths(k = 3, n = 8)
 ```{r}
 
 # Call do maths and create the object 'ans' here.
-do_maths(20, 10)
 
 ans <- do_maths(20, 10)
 
@@ -390,7 +383,7 @@ range(my_vector)
 p <- c(0.25, 0.5, 0.75)
 
 # Get the 25th, 50th and 75th percentile of Sepal.Width
-quantile(iris$Petal.Length, probs = p)
+quantile(iris$Sepal.Width, probs = p)
 
 
 
