@@ -456,7 +456,7 @@ summary(iris)
 # tests. 
 
 
-test_student_typed("summary(iris)", incorrect_msg="Please type in the code to create a summary of `iris`")
+test_output_contains("summary(iris)", incorrect_msg="Please type in the code to create a summary of `iris`")
 
 test_error()
 
