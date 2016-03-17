@@ -394,8 +394,7 @@ quantile(iris$Sepal.Width, probs = p)
 
 test_object("p", incorrect_msg="The vector p should include 3 elements corresponding to the 25th, 50th and 75th percentiles.")
 
-test_function("quantile", args=c("x","probs"),
-              incorrect_answer = "Did you call `quantile()` with two arguments?")
+test_function("quantile", args="x")
 
 test_error()
 
