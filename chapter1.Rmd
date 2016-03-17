@@ -143,7 +143,7 @@ hello
 
 # Create my_name and my_message here.
 my_name <- "Tuomo"
-my_message <- "you are awsome!"
+my_message <- "you are awesome!"
 
 
 ```
@@ -340,7 +340,7 @@ In this execrice you will learn how to create your own vector and use it as an a
 - Use any available resource to find the connection between percentiles and quantiles
 - Define a vector `p` that includes the quantile probabilities corresponding to the 25th, 50th, and 75th percentiles.
 - Use `?quantile` to see the help page on `quantile` and look at the arguments of the default method.
-- Compute the 25th, 50th and 75th percentiles of the Petal.Length column in `iris` using `quantile()`.
+- Compute the 25th, 50th and 75th percentiles of the Sepal.Width column in `iris` using `quantile()`.
 
 *** =hint
 - Remember that `$` can be used to access a column of a data frame
