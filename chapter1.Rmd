@@ -326,7 +326,7 @@ success_msg("Great job!")
 ```
 
 --- type:NormalExercise lang:r xp:150 skills:1,3
-## Vectors and more data frames
+## Vectors
 
 You can combine values of the same basic type to a *vector*, using the function `c()`. 
 
@@ -370,7 +370,7 @@ range(my_vector)
 
 
 
-# Get the 25th, 50th and 75th percentile of Sepal.Width in iris, using quantile(). Use the vector you created above as one of the arguments of quantile().
+# Get the 25th, 50th and 75th percentile of Sepal.Width in iris, using quantile(). Use the vector p as one of the arguments of quantile().
 ?quantile
 
 
