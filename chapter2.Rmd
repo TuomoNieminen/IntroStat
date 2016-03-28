@@ -4,7 +4,7 @@ description : UNDER CONSTRUCTION
 
 --- type:NormalExercise lang:r xp:100 skills:1
 
-## Know your data
+## US state data
 
 In this section of exploring univariate data, we will by using a data set which contains information about the states of the USA. The data is stored in an R object `US` which is of the familiar class data.frame.  
 
@@ -82,6 +82,8 @@ success_msg("Great work! Now let's do some plotting :)")
 
 ```
 
+--- type:NormalExercise lang:r xp:100 skills:1
+
 ## Bar plots
 
 Bar plots are useful for visualizing the counts of a factor. In base R graphics, the function `barplot()` just needs the information about the counts of the factor levels to draw a nice looking graph. This information can easily be retreived using either the `summary()` or `table()` function.
@@ -158,7 +160,7 @@ success_msg("Excellent work!")
 
 --- type:NormalExercise lang:r xp:100 skills:1
 
-## Adding Labels
+## Add labels to plots
 
 Our plot looks great but it could use some extra information. Often we want to add a main title to the plot and perhaps add labels to the y or x axis.
 
@@ -239,7 +241,7 @@ success_msg("Good work!")
 
 --- type:NormalExercise lang:r xp:100 skills:1
 
-## More summaries
+## More summary stats: variance
 
 We have already seen the usefulness of the `summary()` function. However there are many more summary statistics that might interest us that are not reported in the default summary. A good example are the variance and standard deviation. 
 
