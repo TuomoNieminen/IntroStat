@@ -85,7 +85,8 @@ Bar plots are useful for visualizing for example the level counts of a factor. I
 In this exercise you will draw a barplot of `PoptoArea` in the data frame `US`. `PoptoArea` is a factor variable which describes the population to area ratio in a state.
 
 *** =instructions
-- Use `table()` or `summary()` on `PoptoArea` in `US` and create an object `tmp` by assigning the output of either function to it.
+- Use `table()` or `summary()` on `PoptoArea` in `US`.
+- Create an object `tmp` by assigning the output of either function to it.
 - Use the function `barplot()` to draw a bar plot. Use the object you created as an argument.
 
 *** =hint
