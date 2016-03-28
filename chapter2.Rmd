@@ -4,20 +4,20 @@ description : UNDER CONSTRUCTION
 
 --- type:NormalExercise lang:r xp:100 skills:1
 
-## US state data
+## USA state data
 
-In this section of exploring univariate data, we will by using a data set which contains information about the states of the USA. The data is stored in an R object `US` which is of the familiar class data.frame.  
+In this section we will be using a data set which contains information about the states of the USA. The data is stored in an R object `US` which is of the familiar class data.frame.  
 
-The data is based on the 'state' data set that comes with R. To find out more about the data and the variables, see the ?state and the state.x77 section there.
+The data is taken from the 'state' data set that comes with R. To find out more about the data and the variables, see the ?state and the state.x77 section there.
   
   *** =instructions
 - Check out the structure of the `US` object
-- See the help page on `state` and look at the variable descriptions under `state.x77`.
+- Write directly to the console and open the help page on `state`. Look at the variable descriptions under `state.x77`.
 - Create a summary of the variables in `US`
 
 *** =hint
 - `str()`-function gives information about R-objects
-- `?state` or help(state) open the help page
+- `?state` or help(state) opens the help page
 - `summary()` creates summaries of the columns of a data.frame.
   
   *** =pre_exercise_code
@@ -38,26 +38,23 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 *** =sample_code
 ```{r}
 
-# Check out the structure of the US object.
+# Check out the structure of US.
 
-
-# See the help page on state.
 
 
 # Create a summary of the variables in US
 
 
-
+# The console is below
 ```
 
 *** =solution
 ```{r}
 
-# Check out the structure of the US object.
+# Check out the structure of US.
 str(US)
+barplot(table(US$PoptoArea))
 
-# See the help page on state.
-?state
 
 # Create a summary of the variables in US
 summary(US)
@@ -68,16 +65,13 @@ summary(US)
 *** =sct
 ```{r}
 
-# Test whether the function str is called with the correct argument
 test_function("str", args = "object")
 
-# Test whether the function summary is called with the correct argument
 test_function("summary", args = "object" )
 
 # test for error
 test_error()
 
-# Final message the student will see upon completing the exercise
 success_msg("Great work! Now let's do some plotting :)")
 
 ```
@@ -86,13 +80,12 @@ success_msg("Great work! Now let's do some plotting :)")
 
 ## Bar plots
 
-Bar plots are useful for visualizing the counts of a factor. In base R graphics, the function `barplot()` just needs the information about the counts of the factor levels to draw a nice looking graph. This information can easily be retreived using either the `summary()` or `table()` function.
+Bar plots are useful for visualizing for example the level counts of a factor. In base R graphics, the function `barplot()` draws a nice looking bar plot. It's first argument is `height` and this information is all the function needs to draw a simple plot. The information can easily be retreived by using either the `summary()` or the `table()` function on a factor.
 
-We will draw a barplot of the `PoptoArea` variable in the data.frame `US`. PoptoArea is a variable which describes the population to area ratio in a state.
+In this exercise you will draw a barplot of `PoptoArea` in the data frame `US`. `PoptoArea` is a factor variable which describes the population to area ratio in a state.
 
 *** =instructions
-- Use `table()` or `summary()` on the `PoptoArea` column in `US`.
-- Create an object by assigning the output of either function to it.
+- Use `table()` or `summary()` on `PoptoArea` in `US` and create an object `tmp` by assigning the output of either function to it.
 - Use the function `barplot()` to draw a bar plot. Use the object you created as an argument.
 
 *** =hint
@@ -118,10 +111,10 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =sample_code
 ```{r}
-# Look at the counts of different levels of PoptoArea.
+# Use table() or summary() to look at the counts of different levels of PoptoArea.
 
 
-# Create an object by assigning the counts to it.
+# Create object tmp that stores the counts
 
 
 # Call barplot() to draw a graph. Use the object you created as an argument.
@@ -135,7 +128,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 # Look at the counts of different levels of Pop_Area.
 table(US$PoptoArea)
 
-# Create an object that stores the counts.
+# Create object tmp that stores the counts.
 tmp <- table(US$PoptoArea)
 
 # Call barplot() to draw a graph. Use the object you created as an argument.
@@ -147,7 +140,6 @@ barplot(tmp)
 *** =sct
 ```{r}
 
-# test that barplot was called with the correct argument
 test_function("barplot", args="height")
 
 # test error
@@ -160,19 +152,19 @@ success_msg("Excellent work!")
 
 --- type:NormalExercise lang:r xp:100 skills:1
 
-## Add labels to plots
+## Adding labels to plots
 
-Our plot looks great but it could use some extra information. Often we want to add a main title to the plot and perhaps add labels to the y or x axis.
+Our plot looks great but it could use some extra information. Often you want to add a main title to the plot and perhaps label the y or x axis.
 
-There are many things you can add to a plot once you have drawn it by calling further functions. Here we use the `title()` function to add some labels.
+You can easily add to a plot by calling further functions. For example you can use the `title()` function to add labels defined as character strings.
 
 *** =instructions
-- See the help page of `title()`.
+- Write directly to the console and open the help page of `title()`.
 - Figure out which parameter of `title()` corresponds to the main title.
-- Call `title()` and give you graph the main title: "My barplot"
+- Call `title()` and give you graph the main title: "My barplot". Remember to use quotation marks.
 
 *** =hint
-- The `main` argument of `title()` can be used to set the main title. `main` has to be a character string, so remember to use quotation marks: `main=""`.
+- The first argument, `main`, of `title()` can be used to set the main title.
 
 
 *** =pre_exercise_code
@@ -188,19 +180,17 @@ US$PoptoArea <- factor(cut(pop_area, breaks=breaks, include.lowest = T),
                       labels=c("low","medium","high"))
 
 colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
+barplot(table(US$PoptoArea))
 ```
 
 
 *** =sample_code
 ```{r}
-# draw a barplot
+# code to draw a barplot
 barplot(table(US$PoptoArea))
 
 # Add x-axis label
 title(xlab="population/area")
-
-
-# See the help page
 
 
 # Add main title
@@ -214,11 +204,9 @@ title(xlab="population/area")
 # draw a barplot
 barplot(table(US$PoptoArea))
 
+
 # Add a x-axis label
 title(xlab="population/area")
-
-
-# See the help page
 
 
 # Add main title. main is the first argument so it doesn't need to be named.
@@ -235,27 +223,27 @@ test_error()
 
 
 # Final message the student will see upon completing the exercise
-success_msg("Good work!")
+success_msg("Great job!")
 
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1
 
-## More summary stats: variance
+## Advanced summary statistics: variance
 
-We have already seen the usefulness of the `summary()` function. However there are many more summary statistics that might interest us that are not reported in the default summary. A good example are the variance and standard deviation. 
+We have already seen the usefulness of the `summary()` function. However there are many more summary statistics that might interest us that are not reported in the default summary. Good examples are the variance and the standard deviation. 
 
 The variance can be computed with the `var()`-function.
 
 *** =instructions
-- Create a summary of the `HS_Grad` column in `US`.
-- Compute the variance of `HS_Grad`. Save the result in an object called `hg_var`
-- Compute the standard deviation of `HS_Grad`. Save the result to an object called `hg_sd`.
+- Create a summary of the `Life_Exp` column in data frame `US`.
+- Compute the variance of `Life_Exp`. Save the result in an object called `le_var`
+- Compute the standard deviation of `Life_Exp`. Save the result to an object called `le_sd` and then print it.
 - Do you think you could compute the standard deviation with a single function?
 
 *** =hint
-- Rememeber that you can access a column of a data.frame (df) by `df$column_name`.
-- Use the assign-operator `<-` to create an object.
+- You can access a column of a data.frame (df) by `df$column_name`.
+- You can use the assign-operator `<-` to create an object.
 - Standard deviation is the square root of the variance.
 
 
@@ -280,13 +268,13 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 # hint: the function sqrt() computes the squre root.
 sqrt(9) # 3
 
-# Create a summary of HS_Grad in US
+# Create a summary of Life_exp in US
 
 
-# Create object hg_var. Use var() to compute the variance.
+# Create object le_var. Use var() to compute the variance.
 
 
-# Create object hg_sd
+# Create object le_sd
 
 
 
@@ -294,15 +282,15 @@ sqrt(9) # 3
 
 *** =solution
 ```{r}
-# Create a summary of HS_Grad in US
-summary(US$HS_Grad)
+# Create a summary of Life_Exp in US
+summary(US$Life_Exp)
 
-# Create object hg_var
-hg_var <- var(US$HS_Grad)
+# Create object le_var
+le_var <- var(US$Life_Exp)
 
-# Create object hg_sd
-hg_sd <- sqrt(hg_var)
-
+# Create object le_sd and print it
+le_sd <- sqrt(le_var)
+le_sd
 
 ```
 
@@ -310,8 +298,8 @@ hg_sd <- sqrt(hg_var)
 ```{r}
 
 test_function("summary",args="object")
-test_object("hg_var")
-test_object("hg_sd")
+test_object("le_var")
+test_object("le_sd")
 
 # test error
 test_error()
@@ -321,22 +309,24 @@ success_msg("Great work!")
 
 ```
 
+
 --- type:NormalExercise lang:r xp:100 skills:1
 
-## Box plots
+## Histograms
 
-One very good way to summarize and compare distributions is by drawing box plots. A box plot visualizes the 25th, 50th and 75th percentiles (the box), the typical range (the whiskers) and the outliers (the dots) of a distribution. 
+Histograms are an excellent way of visualizing the shape of a distribution. In base R, histograms are drawn with the `hist()`-function. The first argument of `hist()`, `x` should be a vector of data values.
 
-The whiskers extending from the box can be computed by several techniques. The default in R is to extend them to reach 1.5*IQR from the box, where IQR is the inter quartile range. Any values outside this range can be considered as outliers. For more information on IQR, see wikipedia:  https://en.wikipedia.org/wiki/Interquartile_range
+As with all the plotting functions, the `hist()` function can take on many additional arguments which allow for more control over the plot. One simple argument is `col`, which defines the color of the bars. `col` can be a character string giving the name of the color ("blue", "green", ...). Possible color names are here: http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf
 
 *** =instructions
-- Draw a `boxplot()` of `US$HS_Grad`.
-- Label the y axis of the plot as "percentage of graduates"
-- Add a main title, for example: "Distribution of the percentages of US high school graduates by state".
+- Create a histogram of the life expectancies in the USA states. The data is in the data frame `US`.
+- Adjust your code and give your histogram a nice color using the `col` argument. 
+
 
 *** =hint
-- Give the HS_Grad column as the first argument to `boxplot` to draw the plot.
-- Use `title()` to add labels defined as characted strings. See ?title for help.
+- See the exercise `USA state data` for more information about the `US` data frame.
+- You can access the column of a data frame (df) with the `$` symbol: `df$column_name`. The columns of a data frame are vectors containing data values.
+
 
 *** =pre_exercise_code
 ```{r}
@@ -356,13 +346,10 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =sample_code
 ```{r}
-# Draw a boxplot of high school graduate percentages. Use the function boxplot() and give the HS_Grad column as the first argument.
+# Draw a histogram of Life_Exp in US.
 
 
-# Add y axis label
 
-
-# Add main title
 
 
 
@@ -370,14 +357,87 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =solution
 ```{r}
-# Boxplot of high school graduate percentages
-boxplot(US$HS_Grad)
+# Draw a histogram of Life_Exp in US.
+hist(US$Life_Exp, col ="blue")
+
+
+
+
+
+```
+
+*** =sct
+```{r}
+
+test_function("hist", args="x")
+
+# test error
+test_error()
+
+
+# Final message the student will see upon completing the exercise
+success_msg("Good work!")
+
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+
+## Box plots
+
+One very good way to summarize and compare distributions is by drawing box plots. A box plot visualizes the 25th, 50th and 75th percentiles (the box), the typical range (the whiskers) and the outliers (the dots) of a distribution. 
+
+The whiskers extending from the box can be computed by several techniques. The default in R is to extend them to reach 1.5*IQR from the box, where IQR is the inter quartile range. Any values outside this range can be considered as outliers. For more information on IQR, see wikipedia:  https://en.wikipedia.org/wiki/Interquartile_range
+
+*** =instructions
+- Draw a `boxplot()` of `US$Income`. The first argument (`x`) of `boxplot()` should be a vector containing the data values.
+- Label the y axis, for example: "income per capita"
+- Add a main title, for example: "Distribution of per capita income in USA states".
+
+*** =hint
+- Give the `Income` column of `US` as the first argument to `boxplot` to draw the plot.
+- Use `title()` to add labels defined as characted strings. See ?title for help about argument names etc.
+
+*** =pre_exercise_code
+```{r}
+# create a data frame object US
+US <- data.frame(State = row.names(state.x77))
+US <- cbind(US, as.data.frame(state.x77, row.names=F))
+
+# add a population density (a factor)
+pop_area <- with(US, Population/Area)
+breaks <- quantile(pop_area, probs=c(0,0.33,0.66,1))
+US$PoptoArea <- factor(cut(pop_area, breaks=breaks, include.lowest = T),
+                      labels=c("low","medium","high"))
+
+colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
+```
+
+
+*** =sample_code
+```{r}
+# Draw a boxplot of Income.
+
+
+# Add y axis label.
+
+
+# Add main title.
+
+
+
+
+```
+
+*** =solution
+```{r}
+# Draw a boxplot of Income
+boxplot(US$Income)
 
 # Add y axis label
-title(ylab="percentage of graduates")
+title(ylab="income per capita")
 
 # Add main title
-title("Distribution of the percentages of US high school graduates by state")
+title("Distribution of per capita income in USA states")
 
 
 ```
@@ -393,6 +453,6 @@ test_error()
 
 
 # Final message the student will see upon completing the exercise
-success_msg("Nice work!")
+success_msg("Awsome work!")
 
 ```
