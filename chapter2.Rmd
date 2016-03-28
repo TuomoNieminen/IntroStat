@@ -1,44 +1,40 @@
 ---
-  title       : Graphical exploration
+title       : Exploring Univariate Data
 description : UNDER CONSTRUCTION
 
 --- type:NormalExercise lang:r xp:100 skills:1
-## Barplots
+## Know your data
 
-This exercise shows how to create bar plots with R, using package ggplot2!
+In this section of exploring univariate data, we will by using a data set which contains information about the states of the USA. The data is stored in an R object `US` which is of the familiar class data.frame.  
+
+The data is based on the 'state' data set that comes with R. To find out more about the data and the variables, see the ?state and the state.x77 section there.
   
   *** =instructions
-- check out the structure of the iris data set
-- check the first 10 rows of the iris dataset
-- create a bar plot of the factor variable using the `qplot()` function from the ggplot2 package
+- Check out the structure of the `US` object
+- See the help page on `state` and look at the variable descriptions under `state.x77`.
+- Create a summary of the variables in `US`
 
 *** =hint
 - `str()`-function gives information about R-objects
-- `head(x, n=10)` will give the first 10 rows of `x`.
-- use the `library(name_of_library)`-function to use a library
-- use `qplot(x=?,data=?)`-function for barplot
-- you can always use `?function_name` for help!
+- `?state` or help(state) open the help page
+- `summary()` creates summaries of the columns of a data.frame.
   
   *** =pre_exercise_code
 ```{r}
-# preload
-library(ggplot2)
+US <- get(load("US.Rda"))
 ```
 
 *** =sample_code
 ```{r}
 
-# check out the structure of iris
+# Check out the structure of the US object.
 
 
-# display the first 10 rows of iris
+# See the help page on state.
 
 
-# use the ggplot2 package
-library(ggplot2)
+# Create a summary of the variables in US
 
-
-# draw a barplot
 
 
 ```
@@ -46,39 +42,304 @@ library(ggplot2)
 *** =solution
 ```{r}
 
-# check out the structure of iris
-str(iris)
+# Check out the structure of the US object.
+str(US)
 
-# display the first 10 rows of iris
-head(iris, n=10)
+# See the help page on state.
+?state
 
-# use the ggplot2 package
-library(ggplot2)
+# Create a summary of the variables in US
+summary(US)
 
-# draw a barplot
-qplot(x=Species,data=iris)
 
 ```
 
 *** =sct
 ```{r}
 
-# Test whether the function str is called with the correct argument, object
+# Test whether the function str is called with the correct argument
 test_function("str", args = "object")
 
-# Test whether the student correctly called head()
-test_function("head", args = c("x","n") )
+# Test whether the function summary is called with the correct argument
+test_function("summary", args = "object" )
 
-# test qplot()
-test_function("qplot",args=c("x","data") )
-
-
-# It's always smart to include the following line of code at the end of your SCTs
-# It will check whether executing the student's code resulted in an error, 
-# and if so, will cause the exercise to fail
+# test for error
 test_error()
 
 # Final message the student will see upon completing the exercise
+success_msg("Great work! Now let's do some plotting :)")
+
+```
+
+## Bar plots
+
+Bar plots are useful for visualizing the counts of a factor. In base R graphics, the function `barplot()` just needs the information about the counts of the factor levels to draw a nice looking graph. This information can easily be retreived using either the `summary()` or `table()` function.
+
+We will draw a barplot of the `PoptoArea` variable in the data.frame `US`. PoptoArea is a variable which describes the population to area ratio in a state.
+
+*** =instructions
+- Use `table()` or `summary()` on the `PoptoArea` column in `US`.
+- Create an object by assigning the output of either function to it.
+- Use the function `barplot()` to draw a bar plot. Use the object you created as an argument.
+
+*** =hint
+- You can access the columns of a data.frame (df) with the `$` operator: `df$column`.
+- Remember how to create objects using the assign operator `<-`: `object_name <- function_call()`
+
+
+*** =pre_exercise_code
+```{r}
+US <- get(load("US.Rda"))
+```
+
+
+*** =sample_code
+```{r}
+# Look at the counts of different levels of PoptoArea.
+
+
+# Create an object by assigning the counts to it.
+
+
+# Call barplot() to draw a graph. Use the object you created as an argument.
+
+
+
+```
+
+*** =solution
+```{r}
+# Look at the counts of different levels of Pop_Area.
+table(US$PoptoArea)
+
+# Create an object that stores the counts.
+tmp <- table(US$PoptoArea)
+
+# Call barplot() to draw a graph. Use the object you created as an argument.
+barplot(tmp)
+
+
+```
+
+*** =sct
+```{r}
+
+# test that barplot was called with the correct argument
+test_function("barplot", args="height")
+
+# test error
+test_error()
+
+# Final message the student will see upon completing the exercise
+success_msg("Excellent work!")
+
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+
+## Adding Labels
+
+Our plot looks great but it could use some extra information. Often we want to add a main title to the plot and perhaps add labels to the y or x axis.
+
+There are many things you can add to a plot once you have drawn it by calling further functions. Here we use the `title()` function to add some labels.
+
+*** =instructions
+- See the help page of `title()`.
+- Figure out which parameter of `title()` corresponds to the main title.
+- Call `title()` and give you graph the main title: "My barplot"
+
+*** =hint
+- The `main` argument of `title()` can be used to set the main title. `main` has to be a character string, so remember to use quotation marks: `main=""`.
+
+
+*** =pre_exercise_code
+```{r}
+US <- get(load("US.Rda"))
+```
+
+
+*** =sample_code
+```{r}
+# draw a barplot
+barplot(table(US$PoptoArea))
+
+# Add x-axis label
+title(xlab="population/area")
+
+
+# See the help page
+
+
+# Add main title
+
+
+
+```
+
+*** =solution
+```{r}
+# draw a barplot
+barplot(table(US$PoptoArea))
+
+# Add a x-axis label
+title(xlab="population/area")
+
+
+# See the help page
+
+
+# Add main title. main is the first argument so it doesn't need to be named.
+title("My barplot")
+
+
+```
+
+*** =sct
+```{r}
+
+# test error
+test_error()
+
+
+# Final message the student will see upon completing the exercise
 success_msg("Good work!")
+
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+
+## More summaries
+
+We have already seen the usefulness of the `summary()` function. However there are many more summary statistics that might interest us that are not reported in the default summary. A good example are the variance and standard deviation. 
+
+The variance can be computed with the `var()`-function.
+
+*** =instructions
+- Create a summary of the `HS_Grad` column in `US`.
+- Compute the variance of `HS_Grad`. Save the result in an object called `hg_var`
+- Compute the standard deviation of `HS_Grad`. Save the result to an object called `hg_sd`.
+- Do you think you could compute the standard deviation with a single function?
+
+*** =hint
+- Rememeber that you can access a column of a data.frame (df) by `df$column_name`.
+- Use the assign-operator `<-` to create an object.
+- Standard deviation is the square root of the variance.
+
+
+*** =pre_exercise_code
+```{r}
+US <- get(load("US.Rda"))
+```
+
+
+*** =sample_code
+```{r}
+# hint: the function sqrt() computes the squre root.
+sqrt(9) # 3
+
+# Create a summary of HS_Grad in US
+
+
+# Create object hg_var. Use var() to compute the variance.
+
+
+# Create object hg_sd
+
+
+
+```
+
+*** =solution
+```{r}
+# Create a summary of HS_Grad in US
+summary(US$HS_Grad)
+
+# Create object hg_var
+hg_var <- var(US$HS_Grad)
+
+# Create object hg_sd
+hg_sd <- sqrt(hg_var)
+
+
+```
+
+*** =sct
+```{r}
+
+test_function("summary",args="object")
+test_object("hg_var")
+test_object("hg_sd")
+
+# test error
+test_error()
+
+# Final message the student will see upon completing the exercise
+success_msg("Great work!")
+
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+
+## Box plots
+
+One very good way to summarize and compare distributions is by drawing box plots. A box plot visualizes the 25th, 50th and 75th percentiles (the box), the typical range (the whiskers) and the outliers (the dots) of a distribution. 
+
+The whiskers extending from the box can be computed by several techniques. The default in R is to extend them to reach 1.5*IQR from the box, where IQR is the inter quartile range. Any values outside this range can be considered as outliers. For more information on IQR, see wikipedia:  https://en.wikipedia.org/wiki/Interquartile_range
+
+*** =instructions
+- Draw a `boxplot()` of `US$HS_Grad`.
+- Label the y axis of the plot as "percentage of graduates"
+- Add a main title, for example: "Distribution of the percentages of US high school graduates by state".
+
+*** =hint
+- Give the HS_Grad column as the first argument to `boxplot` to draw the plot.
+- Use `title()` to add labels defined as characted strings. See ?title for help.
+
+*** =pre_exercise_code
+```{r}
+US <- get(load("US.Rda"))
+```
+
+
+*** =sample_code
+```{r}
+# Draw a boxplot of high school graduate percentages. Use the function boxplot() and give the HS_Grad column as the first argument.
+
+
+# Add y axis label
+
+
+# Add main title
+
+
+
+```
+
+*** =solution
+```{r}
+# Boxplot of high school graduate percentages
+boxplot(US$HS_Grad)
+
+# Add y axis label
+title(ylab="percentage of graduates")
+
+# Add main title
+title("Distribution of the percentages of US high school graduates by state")
+
+
+```
+
+*** =sct
+```{r}
+
+
+test_function("boxplot", args="x")
+
+# test error
+test_error()
+
+
+# Final message the student will see upon completing the exercise
+success_msg("Nice work!")
 
 ```
