@@ -447,7 +447,7 @@ success_msg("Good work!")
 
 One very good way to summarize and compare distributions is by drawing box plots. A box plot visualizes the 25th, 50th and 75th percentiles (the box), the typical range (the whiskers) and the outliers (the dots) of a distribution. 
 
-The whiskers extending from the box can be computed by several techniques. The default in R is to extend them to reach to a data point value that is no more than 1.5*IQR away from the box, where IQR is the inter quartile range defined as  
+The whiskers extending from the box can be computed by several techniques. The default in R is to extend them to reach to a data point that is no more than 1.5*IQR away from the box, where IQR is the inter quartile range defined as  
 
 `IQR = 75th percentile - 25th percentile`  
 
