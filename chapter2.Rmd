@@ -2,22 +2,62 @@
 title       : Exploring Univariate Data
 description : (UNDER CONSTRUCTION) This set of exercises introduces some basic plotting functions in R that can be used to visually inspect the distribution of a single variable.
 
+--- type:NormalExercise lang:r xp:50 skills:1
+
+## Executing Multiple Lines
+
+Up until now we have executed the code in our script one line at a time. It is however possible to select multiple lines and execute them all. This can be done by "painting" the lines and then pressing `Ctrl + Enter` as usual. Painting is done by left clicking your mouse, holding down and then moving the mouse.
+
+Usually in R it does not matter if you execute the lines of a script together or separately from top to bottom, but here in datacamp it sometimes does. For example drawing a plot and adding information to it has to be done in a single execution.
+
+*** =instructions
+- Execute the code in the script normally one line of a time. What happens?
+- Select both lines by painting them with your mouse and execute the code again.
+
+
+*** =pre_exercise_code
+```{r}
+# pre exercise code here
+```
+
+
+*** =sample_code
+```{r}
+# draw a plot and then add a horizontal line
+plot(x=1, y=2)
+abline(h=2)
+
+```
+
+
+*** =sct
+```{r}
+
+# test error
+test_error()
+
+
+# Final message the student will see upon completing the exercise
+success_msg("Good work!")
+
+```
+
+
 --- type:NormalExercise lang:r xp:100 skills:1
 
 ## USA state data
 
 In this set of exercises we will be using data that is stored in an R object `US`, which is of the familiar class data frame. This data contains information about the states of the USA.  
 
-The data is taken from the 'state' data set that comes with R.
+The data is taken from the 'state' data set that comes with R. As with functions, the data sets in R have help pages that you can access with `?` or `help()`. 
   
   *** =instructions
 - Check out the structure of the `US` object
-- Write directly to the console and open the help page on `state`. Look at the variable descriptions under `state.x77`.
+- Write `?state` or `help(dataset)` to the console to open up the help page on `state`. Take a look at the variable descriptions under `state.x77`. This is where all but one variable of `US` is described.
 - Create a summary of the variables in `US`
 
 *** =hint
 - `str()`-function gives information about R-objects
-- `?state` or help(state) opens the help page
 - `summary()` creates summaries of the columns of a data.frame.
   
   *** =pre_exercise_code
@@ -93,7 +133,7 @@ In this exercise you will draw a barplot of `PoptoArea` in the data frame `US`. 
 
 *** =instructions
 - Remind yourself on how to access the column of a data frame and how to create objects.
-- Use `table()` or `summary()` on `PoptoArea` in data frame `US`.
+- Use `table()` or `summary()` on `PoptoArea` in the data frame `US`. What do they show you?
 - Create an object `tmp` by assigning the output of `table()` or `summary()` to it.
 - Use the function `barplot()` to draw a bar plot. Use the object you created as the first argument.
 
@@ -123,10 +163,10 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 # US data frame is available
 
 
-# Use table() or summary() to look at the counts of different levels of PoptoArea.
+# Use table() or summary() on PoptoArea in data frame US.
 
 
-# Create object tmp that stores the counts
+# Create object tmp that stores the information
 
 
 
@@ -139,7 +179,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =solution
 ```{r}
-# Look at the counts of different levels of Pop_Area.
+# Look at the counts of different levels of Pop_Area in data frame US.
 table(US$PoptoArea)
 
 
@@ -173,12 +213,14 @@ success_msg("Excellent work!")
 
 Our bar plot looks good but it could use some extra information. Often you want to add a main title to the plot and perhaps add a label to the y or x axis.
 
-You can easily add to a plot by calling further functions. For example you can use the `title()` function to add labels defined as character strings.
+You can easily add to a plot by calling further functions. For example you can use the `title()` function to add labels defined as character strings.  
+
+Here in datacamp the functions that add to the plot need to be called simultaneously with the ones that draw the plot.
 
 *** =instructions
-- Write directly to the console and open the help page of `title()`.
+- Open the help page of `title()`.
 - Figure out which parameter of `title()` corresponds to the main title.
-- Call `title()` and give you graph the main title: "My barplot". Remember to use quotation marks.
+- Add a call to title `title()` and give you graph the main title: "My barplot". Remember to use quotation marks.
 
 *** =hint
 - `?title` or `help(title)` opens a help page.
@@ -206,14 +248,11 @@ barplot(table(US$PoptoArea))
 ```{r}
 # US data frame is available
 
-# code to draw a barplot
+# The function calls below draw a barplot and add an x-axis label.
 barplot(table(US$PoptoArea))
-
-# execute this code to add x-axis label
 title(xlab="population/area")
 
-
-# Add main title
+# Add a call to title() that adds a main title to the plot. 
 
 
 
@@ -221,15 +260,12 @@ title(xlab="population/area")
 
 *** =solution
 ```{r}
-# draw a barplot
+
+# When executed together, these functions draw a barplot and add x-axis label
 barplot(table(US$PoptoArea))
-
-
-# Add a x-axis label
 title(xlab="population/area")
 
-
-# Add main title. "main" is the first argument of title() so it doesn't need to be named.
+# Add a call to title() that adds a main title to the plot.
 title("My barplot")
 
 
@@ -291,7 +327,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 # hint: the function sqrt() computes the squre root.
 sqrt(9) # =3
 
-# Create a summary of Life_Exp in data frame US
+# Create a summary of Life_Exp in the data frame US
 
 
 # Create object le_var. Use var() to compute the variance.
@@ -371,7 +407,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # US data frame is available
 
-# Draw a histogram of life expectancies.
+# # Draw a histogram of Life_Exp in data frame US. Make it a colored one!
 
 
 
@@ -382,7 +418,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =solution
 ```{r}
-# Draw a histogram of Life_Exp in data frame US.
+# Draw a histogram of Life_Exp in data frame US. Make it a colored one!
 hist(US$Life_Exp, col ="blue")
 
 
@@ -446,15 +482,8 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # US data frame is available
 
-# Draw a boxplot of Income.
+# Draw a boxplot of Income in the data frame US. Add a y axis label and a main title.
 
-
-
-# Add y axis label.
-
-
-
-# Add main title.
 
 
 
@@ -463,15 +492,9 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =solution
 ```{r}
-# Draw a boxplot of Income
+# Draw a boxplot of Income in the data frame US. Add a y axis label and a main title.
 boxplot(US$Income)
-
-
-# Add y axis label
 title(ylab="income per capita")
-
-
-# Add main title
 title("Distribution of per capita income in USA states")
 
 
