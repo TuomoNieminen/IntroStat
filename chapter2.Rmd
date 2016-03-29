@@ -1,6 +1,6 @@
 ---
 title       : Exploring Univariate Data
-description : UNDER CONSTRUCTION
+description : (UNDER CONSTRUCTION) This set of exercises introduces some basic plotting functions in R that can be used to visually inspect the distribution of a single variable.
 
 --- type:NormalExercise lang:r xp:100 skills:1
 
@@ -37,6 +37,8 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =sample_code
 ```{r}
+# US data frame is available
+
 
 # Check out the structure of US.
 
@@ -118,6 +120,9 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =sample_code
 ```{r}
+# US data frame is available
+
+
 # Use table() or summary() to look at the counts of different levels of PoptoArea.
 
 
@@ -199,6 +204,8 @@ barplot(table(US$PoptoArea))
 
 *** =sample_code
 ```{r}
+# US data frame is available
+
 # code to draw a barplot
 barplot(table(US$PoptoArea))
 
@@ -279,8 +286,10 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =sample_code
 ```{r}
+# US data frame is available
+
 # hint: the function sqrt() computes the squre root.
-sqrt(9) # 3
+sqrt(9) # =3
 
 # Create a summary of Life_Exp in data frame US
 
@@ -360,7 +369,9 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =sample_code
 ```{r}
-# Draw a histogram of Life_Exp in data frame US.
+# US data frame is available
+
+# Draw a histogram of life expectancies.
 
 
 
@@ -433,6 +444,8 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =sample_code
 ```{r}
+# US data frame is available
+
 # Draw a boxplot of Income.
 
 
