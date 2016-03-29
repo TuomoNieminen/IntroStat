@@ -84,7 +84,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 
 
-# Create a summary of the variables in US
+# Create a summary of the variables in US.
 
 
 
@@ -102,7 +102,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 str(US)
 
 
-# Create a summary of the variables in US
+# Create a summary of the variables in US.
 summary(US)
 
 
@@ -166,7 +166,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 # Use table() or summary() on PoptoArea in US.
 
 
-# Create object tmp that stores the information
+# Create object tmp that stores the information.
 
 
 
@@ -261,7 +261,7 @@ title(xlab="population/area")
 *** =solution
 ```{r}
 
-# When executed together, these functions draw a barplot and add x-axis label
+# The function calls below draw a barplot and add an x-axis label.
 barplot(table(US$PoptoArea))
 title(xlab="population/area")
 
@@ -327,13 +327,13 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 # hint: the function sqrt() computes the squre root.
 sqrt(9) # =3
 
-# Create a summary of Life_Exp in US
+# Create a summary of Life_Exp in US.
 
 
 # Create object le_var. Use var() to compute the variance.
 
 
-# Create object le_sd and print it's value
+# Create object le_sd and print it's value.
 
 
 
@@ -341,13 +341,13 @@ sqrt(9) # =3
 
 *** =solution
 ```{r}
-# Create a summary of Life_Exp in US
+# Create a summary of Life_Exp in US.
 summary(US$Life_Exp)
 
-# Create object le_var
+# Create object le_var.
 le_var <- var(US$Life_Exp)
 
-# Create object le_sd and print it's value
+# Create object le_sd and print it's value.
 le_sd <- sqrt(le_var)
 le_sd
 
