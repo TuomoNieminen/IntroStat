@@ -375,10 +375,10 @@ success_msg("Great work!")
 
 Histograms are an excellent way of visualizing the shape of a distribution. In base R, histograms are drawn with the `hist()` function. The first argument of `hist()`, `x` should be a numeric vector of data values. The columns of a data frame can be such vectors, for example.
 
-As with all the plotting functions in R, the `hist()` function can take on many additional arguments which allow for more control over the plot. One simple argument is `col`, which defines the color. `col` can be a character string giving the name of the color ("blue", "green", ...). Some possible color names can be found here: http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf
+As with all the plotting functions in R, the `hist()` function can take on many additional arguments which allow for more control over the plot. One simple argument is `col`, which defines the color. `col` can be a character string giving the name of the color ("blue", "green", ...). Some possible color names can be found <a target="_blank" href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">here</a>
 
 *** =instructions
-- Create a histogram of the life expectancies in the USA states. The data is in the data frame `US`.
+- Create a histogram of the life expectancies in the USA states.
 - Adjust your code and give your histogram a nice color using the `col` argument. 
 
 
@@ -447,11 +447,11 @@ success_msg("Good work!")
 
 One very good way to summarize and compare distributions is by drawing box plots. A box plot visualizes the 25th, 50th and 75th percentiles (the box), the typical range (the whiskers) and the outliers (the dots) of a distribution. 
 
-The whiskers extending from the box can be computed by several techniques. The default in R is to extend them to reach 1.5*IQR from the box, where IQR is the inter quartile range defined as  
+The whiskers extending from the box can be computed by several techniques. The default in R is to extend them to reach to a data point value that is no more than 1.5*IQR away from the box, where IQR is the inter quartile range defined as  
 
 `IQR = 75th percentile - 25th percentile`  
 
-Values outside the whiskers can be considered as outliers, unusually distant observations. For more information on IQR, see wikipedia:  https://en.wikipedia.org/wiki/Interquartile_range
+Values outside the whiskers can be considered as outliers, unusually distant observations. For more information on IQR, see <a target="_blank" href ="https://en.wikipedia.org/wiki/Interquartile_range"> wikipedia</a>
 
 *** =instructions
 - Draw a `boxplot()` of `US$Income`. The first argument (`x`) of `boxplot()` should be a numerical vector containing data values.
