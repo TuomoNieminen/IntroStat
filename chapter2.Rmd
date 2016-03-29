@@ -53,7 +53,7 @@ The data is taken from the 'state' data set that comes with R. As with functions
   
   *** =instructions
 - Check out the structure of the `US` object
-- Write `?state` or `help(dataset)` to the console to open up the help page on `state`. Take a look at the variable descriptions under `state.x77`. This is where all but one variable of `US` is described.
+- Write `?state` or `help(state)` to the console to open up the help page on `state`. Take a look at the variable descriptions under `state.x77`. This is where all but one variable of `US` is described.
 - Create a summary of the variables in `US`
 
 *** =hint
@@ -163,7 +163,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 # US data frame is available
 
 
-# Use table() or summary() on PoptoArea in data frame US.
+# Use table() or summary() on PoptoArea in US.
 
 
 # Create object tmp that stores the information
@@ -179,7 +179,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =solution
 ```{r}
-# Look at the counts of different levels of Pop_Area in data frame US.
+# Look at the counts of different levels of Pop_Area in US.
 table(US$PoptoArea)
 
 
@@ -327,7 +327,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 # hint: the function sqrt() computes the squre root.
 sqrt(9) # =3
 
-# Create a summary of Life_Exp in the data frame US
+# Create a summary of Life_Exp in US
 
 
 # Create object le_var. Use var() to compute the variance.
@@ -407,7 +407,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # US data frame is available
 
-# # Draw a histogram of Life_Exp in data frame US. Make it a colored one!
+# Draw a histogram of Life_Exp in US. Make it a colored one!
 
 
 
@@ -418,7 +418,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =solution
 ```{r}
-# Draw a histogram of Life_Exp in data frame US. Make it a colored one!
+# Draw a histogram of Life_Exp in US. Make it a colored one!
 hist(US$Life_Exp, col ="blue")
 
 
@@ -482,7 +482,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # US data frame is available
 
-# Draw a boxplot of Income in the data frame US. Add a y axis label and a main title.
+# Draw a boxplot of Income in US. Add a y axis label and a main title.
 
 
 
@@ -492,7 +492,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =solution
 ```{r}
-# Draw a boxplot of Income in the data frame US. Add a y axis label and a main title.
+# Draw a boxplot of Income in US. Add a y axis label and a main title.
 boxplot(US$Income)
 title(ylab="income per capita")
 title("Distribution of per capita income in USA states")
