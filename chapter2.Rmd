@@ -220,7 +220,7 @@ Here in datacamp the functions that add to the plot need to be called simultaneo
 *** =instructions
 - Open the help page of `title()`.
 - Figure out which parameter of `title()` corresponds to the main title.
-- Add a call to title `title()` and give you graph the main title: "My barplot". Remember to use quotation marks.
+- Add a call to `title()` and give you graph the main title: "My barplot". Remember to use quotation marks.
 
 *** =hint
 - `?title` or `help(title)` opens a help page.
@@ -283,7 +283,7 @@ success_msg("Great job!")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:150 skills:1
 
 ## Advanced summary statistics: variance
 
@@ -328,19 +328,16 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # US data frame is available
 
-# sqrt() computes the square root and round() rounds to specified number of digits (default is digits = 0)
+# sqrt() computes the square root and round() rounds to specified number of digits (default: digits = 0)
 ten_squared <- sqrt(10)
 ten_squared # = 3.162...
 round(ten_squared) # = 3
 
 # Create a summary of Income in US.
 
-
 # Create object inc_var. Use var() to compute the variance.
 
-
 # Create object inc_sd.
-
 
 # Print the rounded values of both objects.
 
@@ -389,6 +386,8 @@ success_msg("Great work!")
 ## Histograms
 
 Histograms are an excellent way of visualizing the shape of a distribution. In base R, histograms are drawn with the `hist()` function. The first argument of `hist()`, `x` should be a numeric vector of data values. The columns of a data frame can be such vectors, for example.
+
+I say *base* R because there are many additional libraries to R that include methods for analysis, plottig, data collection... We will get to libraries later.  
 
 As with all the plotting functions in R, the `hist()` function can take on many additional arguments which allow for more control over the plot. One simple argument is `col`, which defines the color. `col` can be a character string giving the name of the color ("blue", "green", ...). Some possible color names can be found <a target="_blank" href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">here</a>
 
