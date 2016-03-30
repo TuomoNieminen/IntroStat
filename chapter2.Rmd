@@ -289,12 +289,16 @@ success_msg("Great job!")
 
 We have already seen the usefulness of the `summary()` function. However there are many more summary statistics that might interest us that are not reported in the default summary. Good examples are the variance and the standard deviation. 
 
-The variance can be computed with the `var()`-function.
+The variance can be computed with the `var()`-function. The first argument `x` should be a numeric vector, such as a column of a data frame.  
+
+The argument `x` of `var()` can also be a numeric matrix or a data frame to compute <a href="https://en.wikipedia.org/wiki/Covariance">covariances</a>. For this there is also the function `cov()`.
 
 *** =instructions
-- Create a summary of the `Life_Exp` column in data frame `US`.
-- Compute the variance of `Life_Exp`. Save the result in an object called `le_var`
-- Compute the standard deviation of `Life_Exp`. Save the result to an object called `le_sd` and then print it's value.
+- Create a summary of the `Income` column in data frame `US`.
+- Compute the variance of `Income`. Save the result to an object called `inc_var`
+- Use any resource to find the connection between variance and standard deviation.
+- Use `inc_var` to compute the standard deviation of `Income`. Save the result to an object called `inc_sd`.
+- Print the rounded values of both objects. How would you interpret the measures?
 - Do you think you could compute the standard deviation with a single function call?
 
 *** =hint
@@ -324,16 +328,21 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # US data frame is available
 
-# hint: the function sqrt() computes the squre root.
-sqrt(9) # =3
+# The function sqrt() computes the squre root and the function round() rounds to specified digits (default is digits = 0)
+ten_squared <- sqrt(10)
+ten_squared # = 3.162...
+round(ten_squared) # = 3
 
-# Create a summary of Life_Exp in US.
+# Create a summary of Income in US.
 
 
-# Create object le_var. Use var() to compute the variance.
+# Create object inc_var. Use var() to compute the variance.
 
 
-# Create object le_sd and print it's value.
+# Create object inc_sd.
+
+
+# Print the rounded values of both objects.
 
 
 
@@ -341,15 +350,18 @@ sqrt(9) # =3
 
 *** =solution
 ```{r}
-# Create a summary of Life_Exp in US.
-summary(US$Life_Exp)
+# Create a summary of Income in US.
+summary(US$Income)
 
-# Create object le_var.
-le_var <- var(US$Life_Exp)
+# Create object inc_var.
+inc_var <- var(US$Income)
 
-# Create object le_sd and print it's value.
-le_sd <- sqrt(le_var)
-le_sd
+# Create object inc_sd
+inc_sd <- sqrt(inc_var)
+
+# Print the rounded values of both objects.
+round(inc_var)
+round(inc_sd)
 
 ```
 
@@ -359,6 +371,9 @@ le_sd
 test_function("summary",args="object")
 test_object("le_var")
 test_object("le_sd")
+
+test_output_contains(round(inc_var))
+test_output_contains(round(inc_sd))
 
 # test error
 test_error()
@@ -378,7 +393,7 @@ Histograms are an excellent way of visualizing the shape of a distribution. In b
 As with all the plotting functions in R, the `hist()` function can take on many additional arguments which allow for more control over the plot. One simple argument is `col`, which defines the color. `col` can be a character string giving the name of the color ("blue", "green", ...). Some possible color names can be found <a target="_blank" href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">here</a>
 
 *** =instructions
-- Create a histogram of the life expectancies in the USA states.
+- Create a histogram of the Incomes in the USA states.
 - Adjust your code and give your histogram a nice color using the `col` argument. 
 
 
@@ -407,7 +422,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # US data frame is available
 
-# Draw a histogram of Life_Exp in US. Make it a colored one!
+# Draw a histogram of Income in US. Make it a colored one!
 
 
 
@@ -418,8 +433,8 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =solution
 ```{r}
-# Draw a histogram of Life_Exp in US. Make it a colored one!
-hist(US$Life_Exp, col ="blue")
+# Draw a histogram of Income in US. Make it a colored one!
+hist(US$Income, col ="blue")
 
 
 
