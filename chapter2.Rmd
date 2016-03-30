@@ -1,6 +1,6 @@
 ---
 title       : Exploring Univariate Data
-description : (UNDER CONSTRUCTION) This set of exercises introduces some basic plotting functions in R that can be used to visually inspect the distribution of a single variable.
+description : This set of exercises introduces some basic plotting functions in R that can be used to visually inspect the distribution of a single variable.
 
 --- type:NormalExercise lang:r xp:50 skills:1
 
@@ -297,7 +297,7 @@ The argument `x` of `var()` can also be a numeric matrix or a data frame to comp
 - Create a summary of the `Income` column in data frame `US`.
 - Compute the variance of `Income`. Save the result to an object called `inc_var`
 - Use any resource to find the connection between variance and standard deviation.
-- Use `inc_var` to compute the standard deviation of `Income`. Save the result to an object called `inc_sd`.
+- Use `inc_var` and compute the standard deviation of `Income`. Save the result to an object called `inc_sd`.
 - Print the rounded values of both objects. How would you interpret the measures?
 - Do you think you could compute the standard deviation with a single function call?
 
@@ -328,7 +328,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # US data frame is available
 
-# The function sqrt() computes the squre root and the function round() rounds to specified digits (default is digits = 0)
+# sqrt() computes the square root and round() rounds to specified number of digits (default is digits = 0)
 ten_squared <- sqrt(10)
 ten_squared # = 3.162...
 round(ten_squared) # = 3
@@ -369,8 +369,8 @@ round(inc_sd)
 ```{r}
 
 test_function("summary",args="object")
-test_object("le_var")
-test_object("le_sd")
+test_object("inc_var")
+test_object("inc_sd")
 
 test_output_contains(round(inc_var))
 test_output_contains(round(inc_sd))
@@ -393,12 +393,11 @@ Histograms are an excellent way of visualizing the shape of a distribution. In b
 As with all the plotting functions in R, the `hist()` function can take on many additional arguments which allow for more control over the plot. One simple argument is `col`, which defines the color. `col` can be a character string giving the name of the color ("blue", "green", ...). Some possible color names can be found <a target="_blank" href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">here</a>
 
 *** =instructions
-- Create a histogram of the Incomes in the USA states.
+- Create a histogram of the incomes in the USA states.
 - Adjust your code and give your histogram a nice color using the `col` argument. 
 
 
 *** =hint
-- You can use `str(US)` to see the structure (and columns) of `US`
 - You can access the column of a data frame (df) with the `$` symbol: `df$column_name`.
 
 
