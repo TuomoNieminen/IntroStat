@@ -387,12 +387,13 @@ success_msg("Great work!")
 
 Histograms are an excellent way of visualizing the shape of a distribution. In base R, histograms are drawn with the `hist()` function. The first argument of `hist()`, `x` should be a numeric vector of data values. The columns of a data frame can be such vectors, for example.
 
-I say *base* R because there are many additional libraries to R that include methods for analysis, plottig, data collection... We will get to libraries later.  
+I say *base* R because there are many additional libraries that include methods for analysis, plottig, data collection... We will get to libraries later.  
 
-As with all the plotting functions in R, the `hist()` function can take on many additional arguments which allow for more control over the plot. One simple argument is `col`, which defines the color. `col` can be a character string giving the name of the color ("blue", "green", ...). Some possible color names can be found <a target="_blank" href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">here</a>
+As with all the plotting functions in R, the `hist()` function can take on many additional arguments which allow for more control over the plot. One simple argument is `col`, which defines the color. `col` can be a character string giving the name of the color ("blue", "green", ...). Some possible color names can be found <a target="_blank" href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">here</a> The `breaks` argument can be used to control the approximate number of bins.
 
 *** =instructions
 - Create a histogram of the incomes in the USA states.
+- Adjust your code and draw the histogram again using `breaks = 12`.
 - Adjust your code and give your histogram a nice color using the `col` argument. 
 
 
@@ -432,7 +433,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 *** =solution
 ```{r}
 # Draw a histogram of Income in US. Make it a colored one!
-hist(US$Income, col ="blue")
+hist(US$Income, breaks = 12, col ="blue")
 
 
 
@@ -443,7 +444,7 @@ hist(US$Income, col ="blue")
 *** =sct
 ```{r}
 
-test_function("hist", args="x")
+test_function("hist", args=c("x","breaks"))
 
 # test error
 test_error()
