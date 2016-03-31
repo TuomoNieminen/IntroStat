@@ -389,16 +389,19 @@ Histograms are an excellent way of visualizing the shape of a distribution. In b
 
 I say *base* R because there are many additional libraries that include methods for analysis, plottig, data collection... We will get to libraries later.  
 
-As with all the plotting functions in R, the `hist()` function can take on many additional arguments which allow for more control over the plot. One simple argument is `col`, which defines the color. `col` can be a character string giving the name of the color ("blue", "green", ...). Some possible color names can be found <a target="_blank" href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">here</a> The `breaks` argument can be used to control the approximate number of bins.
+As with all the plotting functions in R, the `hist()` function can take on many additional arguments which allow for more control over the plot. Function arguments are separated from each other with a comma.  
+
+One simple argument is `col`, which defines the color. `col` can be a character string giving the name of the color ("blue", "green", ...). Some possible color names can be found <a target="_blank" href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">here</a> The `breaks` argument can be used to control the approximate number of bins.
 
 *** =instructions
 - Create a histogram of the incomes in the USA states.
 - Adjust your code and draw the histogram again using `breaks = 12`.
-- Adjust your code and give your histogram a nice color using the `col` argument. 
+- Adjust your code and give your histogram a nice color using the `col` argument. Use quotations marks to define the color name.
 
 
 *** =hint
 - You can access the column of a data frame (df) with the `$` symbol: `df$column_name`.
+- Remember to seperate the arguments of a function with a comma.
 
 
 *** =pre_exercise_code
@@ -421,7 +424,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # US data frame is available
 
-# Draw a histogram of Income in US. Make it a colored one!
+# Draw a histogram of Income in US. Use the additional arguments breaks and col.
 
 
 
@@ -432,7 +435,7 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 *** =solution
 ```{r}
-# Draw a histogram of Income in US. Make it a colored one!
+# Draw a histogram of Income in US. Use the additional arguments breaks and col.
 hist(US$Income, breaks = 12, col ="blue")
 
 
