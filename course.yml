@@ -1,7 +1,7 @@
 
 title            : HY IntroStats
 author_field     : Tuomo Nieminen
-description      : A pilot version of the data science module for the Helsinki university "Introduction to Statistics" course.
+description      : This is a pilot version of the data science module for the Helsinki university course "Introduction to Statistics". Here you can learn the basics of R, a programming language for statistical computing. You can also deepen your understanding on the basics of statistics and learn to apply the concepts you have studied in the course. <br> Welcome to the practical side of statistics!
 author_bio       : Tuomo Nieminen is a statistics student at the University of Helsinki.<br>He is passionate about statistics, programming and teaching and believes that data analysis will make the world a better place.
 university       : Helsinki university
 difficulty_level : 2
