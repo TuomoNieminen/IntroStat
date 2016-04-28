@@ -4,15 +4,17 @@ description : This set of exercises guides you through a simple regression analy
 
 --- type:NormalExercise lang:r xp:50 skills:1
 
-## Linear model
+## What is a linear model?
 
-A statistical model embodies a set of assumptions concerning the generation of the observed data, and similar data from a larger population. In this set of exercises we will build a simple linear model and learn how to explore the validity of the assumptions of the model. A linear model makes the following assumptions:
+A statistical model embodies a set of assumptions concerning the generation of the observed data, and similar data from a larger population. A linear model makes the following assumptions:
 
 - The mean of the response variable is a linear combination of the explanatory variable(s) and the parameters.
 - The variance (in prediction errors) is constant over possible values of the explanatory variable(s).
 - The erros are normally distributed.
 
-Regression analysis is based on a linear model - a statistical model in which a linear relationship between the mean of the variable of interest (`y`) and some explanatory variable(s) (`x`) is assumed. Mathematically this relationship is simply the formula of a line
+Regression analysis is based on a linear model - a statistical model in which a linear relationship between the mean of the variable of interest (`y`) and some explanatory variable(s) (`x`) is assumed.
+
+Mathematically this relationship is simply the formula of a line
 
 `y = a + b*x`, 
 
@@ -40,10 +42,10 @@ It is always a good idea to start with graphical inspections before continuing w
 df <- data.frame(my_x = c(0,1,4), my_y = c(0,2,3))
 
 # draw a scatter plot
-plot(df$my_x, df$my_y)
+plot(df$my_x, df$my_y, col="blue")
 
 # when given just one variable, plot() assumes the indexes on the x axis
-plot(df$my_y)
+plot(df$my_y, col="red")
 
 
 ```
@@ -115,13 +117,13 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # data frame US is available
 
-# draw a scatter plot of Illiteracy and Murder in data frame US using plot()
+# Draw a scatter plot of Illiteracy and Murder in data frame US using plot()
 
 
 # Compute the correlation between Illiteracy and Murder
 
 
-# Compute the confidence interval for the correlation using cor.test()
+# Compute the same correction with a confidence interval using cor.test()
 
 
 ```
@@ -130,13 +132,13 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # data frame US is available
 
-# draw a scatter plot of Illiteracy and Murder in US
+# Draw a scatter plot of Illiteracy and Murder in US
 plot(US$Illiteracy, US$Murder)
 
-# calculate the correlation between Illiteracy and Murder
+# Compute the correlation between Illiteracy and Murder
 cor(US$Illiteracy, US$Murder)
 
-# calculate the correlation with a confidence interval
+# Compute the same correlation with a confidence interval
 cor.test(US$Illiteracy, US$Murder)
 
 
@@ -163,11 +165,21 @@ success_msg("Good work!")
 
 ## Fitting a linear model
 
-Regression analysis is based on a linear model of the form `y = a + b*x`, where `x` denotes the explanatory variable(s), `y` the dependent variable and `a` and `b` are parameters of the model, which need to be estimated. In R, the parameters of a linear model can be estimated using the `lm()` function. This is also called fitting a model.
+Regression analysis is based on a linear model of the form
 
-`lm()` takes as it's first argument a *formula*, which is a symbolic description of the model. For example `my_y ~ my_x` is a formula stating that `my_y` depends on `my_x`. The second argument of `lm()` is `data`, which defines the data frame where `my_x` and `my_y` are found.
+`y = a + b*x`, 
 
-`lm()` returns an R object which contains information about the fitted model.
+where `x` denotes the explanatory variable(s), `y` the dependent variable and `a` and `b` are parameters of the model, which need to be estimated.
+
+In R, the parameters of a linear model can be estimated using the `lm()` function. This is also called fitting a model.
+
+`lm()` takes as it's first argument a *formula*, which is a symbolic description of the model. For example 
+
+`my_y ~ my_x` 
+
+is a formula stating that `my_y` depends on `my_x`.
+
+The second argument of `lm()` is `data`, which defines the data frame where `my_x` and `my_y` are found. `lm()` returns an R object which contains information about the fitted model.
 
 *** =instructions
 - Change the code so that you fit a model where `Murder` is assumed to depend on `Illiteracy` in data frame `US`. Create object `my_fit` by saving the output of `lm()` to it.
@@ -201,10 +213,10 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 ```{r}
 # data frame US is available
 
-# create object my_fit explaining Murder with Illiteracy in data frame US
+# Create object my_fit explaining Murder with Illiteracy in data frame US
 my_fit <- lm(0 ~ 1, data=NULL)
 
-# use summary() on the object my_fit
+# Use summary() on the object my_fit
 
 
 
@@ -244,7 +256,9 @@ success_msg("Great job, now let's interpret the results!")
 
 ## Intepreting a fitted model
 
-Now that we have estimated the parameters of our model, it is time to interpret the results! Use any resource to study how to interpret regression coefficients and the p-values related to them. Which of the following choices are correct?
+Now that we have estimated the parameters of our model, it is time to interpret the results! Use any resource to study how to interpret regression coefficients and the p-values related to them. 
+
+Type `summary(my_fit)` on the console. Which of the following choices are correct?
 
 *** =instructions
 - When Illiteracy increases by one unit, the average increase of Murder is 2.4 units. The effect is statistically significant.
@@ -253,7 +267,7 @@ Now that we have estimated the parameters of our model, it is time to interpret 
 - When Illiteracy increases by one unit, the average increase of Murder is 4.3 units. The effect is not statistically significant.
 
 *** =hint
-- hint
+- The first values on the right of `(Intercept)` and `Illiteracy` are the coefficient (b) estimates.
 
 
 *** =pre_exercise_code
@@ -274,9 +288,6 @@ colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
 
 # create object my_fit explaining Murder with Illiteracy in data frame US
 my_fit <- lm(Murder ~ Illiteracy, data=US)
-
-# use summary on my_fit
-summary(my_fit)
 
 ```
 
@@ -304,7 +315,7 @@ success_msg("Awsome work!")
 
 ## Checking the validity of model assumptions (1)
 
-Let us now return to the assumptions of our model. We started by looking at the plausibility of a linear relationship, which was the first assumption. So we have two assupmtions left unchecked:
+Let us now return to the assumptions of our model. We started by looking at the plausibility of a linear relationship, which was the first assumption. So we have two assumptions left unchecked:
 
 - The variance in prediction errors is constant over possible values of the explanatory variable(s).
 - The erros are normally distributed.
@@ -338,37 +349,45 @@ breaks <- quantile(pop_area, probs=c(0,0.33,0.66,1))
 US$PoptoArea <- factor(cut(pop_area, breaks=breaks, include.lowest = T),
                        labels=c("low","medium","high"))
 colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
+
+# Create object my_fit explaining Murder with Illiteracy in data frame US
+my_fit <- lm(Murder ~ Illiteracy, data=US)
+
+# Create object prediction by access the fitted values in my_fit
+predictions <- my_fit$fitted.values
 ```
 
 
 *** =sample_code
 ```{r}
-# create object my_fit explaining Murder with Illiteracy in data frame US
+# data frame US is available
+
+# Create object my_fit explaining Murder with Illiteracy in data frame US
 my_fit <- lm(Murder ~ Illiteracy, data=US)
 
-# create object prediction by accessing fitted.values in my_fit
+# Create object prediction by accessing fitted.values in my_fit
 predictions <- my_fit$fitted.values
 
-# create object sq_errors by accessing residuals in my_fit and raise them to the power of two
+# Create object sq_errors by accessing residuals in my_fit and raise them to the power of two
 
 
-# draw a scatter plot of predictions and squared errors
+# Draw a scatter plot of predictions and squared errors
 
 
 ```
 
 *** =solution
 ```{r}
-# create object my_fit explaining Murder with Illiteracy in data frame US
+# Create object my_fit explaining Murder with Illiteracy in data frame US
 my_fit <- lm(Murder ~ Illiteracy, data=US)
 
-# create object prediction by access the fitted values in my_fit
+# Create object prediction by access the fitted values in my_fit
 predictions <- my_fit$fitted.values
 
-# create object sq_errors by accessing residuals in my_fit and raise them to the power of two
+# Create object sq_errors by accessing residuals in my_fit and raise them to the power of two
 sq_errors <- my_fit$residuals^2
 
-# draw a scatter plot of predictions and squared errors
+# Draw a scatter plot of predictions and squared errors
 plot(predictions, sq_errors)
 
 ```
@@ -384,7 +403,7 @@ test_error()
 
 
 # Final message the student will see upon completing the exercise
-success_msg("Good work!")
+success_msg("Great work! One more to go.")
 
 ```
 
@@ -396,16 +415,16 @@ We have one assumption left unchecked: The erros are normally distributed. A goo
 
 A q-q plot plots the theoretical quantiles against the observed quantiles and if these two agree, then the points of the plot should approximately follow a straight increasing line. There wil always be slight deviations from the line, ofcourse, but validations of the normal assumption should show a clear non-linear pattern.
 
-In R, aa q-q plot can be drawn with the `qqnorm()` and `qqline()` functions. The first argument of both is `y` - a numeric vector of values whose distribution we are interested in.
+In R, a q-q plot can be drawn with the `qqnorm()` and `qqline()` functions. The first argument of both is `y`, a numeric vector of the values whose distribution we are interested in.
 
 *** =instructions
 - Draw a histogram of the distribution of the errors
 - Draw a q-q plot of the errors, comparing their distribution to the normal distribution. Use `qqnorm()`.
-- Add a line to the q-q plot with `qqline()`.
+- Add a line to the q-q plot with `qqline()` and execute both function calls simultaniously.
 - Do the points follow the line reasonably well?
 
 *** =hint
-- hint
+- Remember that when adding to a plot you have to execute multiple line of code at once by painting them with your mouse.
 
 
 *** =pre_exercise_code
@@ -422,19 +441,23 @@ breaks <- quantile(pop_area, probs=c(0,0.33,0.66,1))
 US$PoptoArea <- factor(cut(pop_area, breaks=breaks, include.lowest = T),
                        labels=c("low","medium","high"))
 colnames(US)[c(5,7)] <- c("Life_Exp","HS_Grad")
+
+# Create object my_fit explaining Murder with Illiteracy in data frame US
+my_fit <- lm(Murder ~ Illiteracy, data=US)
+errors <- my_fit$residuals
 ```
 
 
 *** =sample_code
 ```{r}
-# create object my_fit explaining Murder with Illiteracy in data frame US
+# Create object my_fit explaining Murder with Illiteracy in data frame US
 my_fit <- lm(Murder ~ Illiteracy, data=US)
 errors <- my_fit$residuals
 
-# draw a histogram of the errors using hist()
+# Draw a histogram of the errors using hist()
 
 
-# draw a qqplot of the errors using qqnorm()
+# Draw a qqplot of the errors using qqnorm()
 
 
 # add a line to the plot with qqline()
@@ -471,6 +494,6 @@ test_error()
 
 
 # Final message the student will see upon completing the exercise
-success_msg("Great work! Now you know how to fit and validate linear models!")
+success_msg("Awsome work! Now you know how to fit and validate linear models!")
 
 ```
