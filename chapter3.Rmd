@@ -2,7 +2,7 @@
 title       : Regression
 description : This set of exercises guides you through a simple regression analysis with R. You will learn how to fit a simpe linear model, how to interpret it's results and how to validate the model by checking if the assumptions of the model are reasonable.
 
---- type:NormalExercise lang:r xp:50 skills:1
+--- type:NormalExercise lang:r xp:50 skills:1 key:6c4d4398aceda66aed91b8524b6ff736c80e911c
 
 ## What is a linear model?
 
@@ -75,7 +75,7 @@ success_msg("Good work!")
 ```
 
 
---- type:NormalExercise lang:r xp:150 skills:1
+--- type:NormalExercise lang:r xp:150 skills:1 key:4133785b5a29859b91fbfac9ee9755a78b4c62cf
 
 ## Exploring the relationship of two variables
 
@@ -161,7 +161,7 @@ success_msg("Good work!")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:5046930441514c422d83c598bf9c09fd5a5def79
 
 ## Fitting a linear model
 
@@ -187,7 +187,7 @@ The second argument of `lm()` is `data`, which defines the data frame where `my_
 
 
 *** =hint
-- Replace the number in the formula inside `lm()` with `Murder` and `Ìlliteracy`
+- Replace the number in the formula inside `lm()` with `Murder` and `ÃŒlliteracy`
 - Remember to define data=US.
 
 
@@ -252,7 +252,7 @@ success_msg("Great job, now let's interpret the results!")
 ```
 
 
---- type:MultipleChoiceExercise lang:r xp:100 skills:1
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:98578cc1a04afa083fd8cf5b28ed5bb70ed9e31b
 
 ## Intepreting a fitted model
 
@@ -311,7 +311,7 @@ success_msg("Awsome work!")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:b1084ba29d984fdd7c734f0ac3ff4cb250a68234
 
 ## Checking the validity of model assumptions (1)
 
@@ -407,7 +407,7 @@ success_msg("Great work! One more to go.")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:b6dd41ea622151878c307781d8f0b74874a51d7f
 
 ## Checking the validity of model assumptions (2)
 
