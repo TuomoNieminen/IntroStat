@@ -2,7 +2,7 @@
 title       : Exploring Univariate Data
 description : This set of exercises introduces some basic plotting functions in R that can be used to visually inspect the distribution of a single variable.
 
---- type:NormalExercise lang:r xp:50 skills:1
+--- type:NormalExercise lang:r xp:50 skills:1 key:487ba46842ab4ded92aff4caad355d759c1dee10
 
 ## Executing Multiple Lines
 
@@ -43,7 +43,7 @@ success_msg("Good work!")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:649324efda3b259ccb9b50ab8481b18210593450
 
 ## USA state data
 
@@ -121,7 +121,7 @@ success_msg("Great work! Now let's do some plotting :)")
 
 ```
 
---- type:NormalExercise lang:r xp:150 skills:1
+--- type:NormalExercise lang:r xp:150 skills:1 key:01ff47d051ec4242b26f9fcf56b2053850835f98
 
 ## Bar plots
 
@@ -207,7 +207,7 @@ success_msg("Excellent work!")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:533e51ba138b731ad8edb73acaafb7896da48705
 
 ## Adding labels to plots
 
@@ -283,7 +283,7 @@ success_msg("Great job!")
 
 ```
 
---- type:NormalExercise lang:r xp:150 skills:1
+--- type:NormalExercise lang:r xp:150 skills:1 key:868b98b1fbca498aa0802603310d569911b28dee
 
 ## Advanced summary statistics: variance
 
@@ -381,7 +381,7 @@ success_msg("Great work!")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:b2728748ea4456393f9a76c4dab88552cf3f9564
 
 ## Histograms
 
@@ -458,7 +458,7 @@ success_msg("Good work!")
 
 ```
 
---- type:NormalExercise lang:r xp:150 skills:1
+--- type:NormalExercise lang:r xp:150 skills:1 key:ec85dd5f85cfd8e7a67000e6507a5b3d7be4e7b2
 
 ## Box plots
 
