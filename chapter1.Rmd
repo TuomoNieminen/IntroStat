@@ -2,7 +2,7 @@
 title       : Meet R
 description : Soft introduction to R
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:de09d01488ffeaadae630ea92d132a086dd61afd
 
 ## Basic tools
 
@@ -73,7 +73,7 @@ success_msg("Good work!")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1
+--- type:NormalExercise lang:r xp:100 skills:1 key:2ece8a1d51aa35dc74f16d4217f5636c1dfcc0de
 ## Objects
 
 In R you can create and operate on things called *objects*. 
@@ -159,7 +159,7 @@ success_msg(paste0(my_name, ", ", my_message))
 
 ```
 
---- type:NormalExercise lang:r xp:150 skills:1,3
+--- type:NormalExercise lang:r xp:150 skills:1,3 key:9172b01315f39e580eeda8c8a156d2e13ad3240d
 ## Data frames
 
 The most common object to operate on is the `data frame` object, which stores data in tabular form.
@@ -233,7 +233,7 @@ success_msg("Good work!")
 ```
 
 
---- type:NormalExercise lang:r xp:150 skills:1
+--- type:NormalExercise lang:r xp:150 skills:1 key:429eb34b1ac313dd409ca3f3d67e408d426e573d
 ## Functions and arguments
 
 
@@ -326,7 +326,7 @@ success_msg("Great job!")
 ```
 
 
---- type:NormalExercise lang:r xp:200 skills:1,3
+--- type:NormalExercise lang:r xp:200 skills:1,3 key:4fe219c588c0582693820914f8eb5d826fa1b5f2
 ## Vectors
 
 You can combine values of the same basic type to a *vector*, using the function `c()`. 
@@ -403,7 +403,7 @@ success_msg("Great work, that was a tough one!")
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1, 3
+--- type:NormalExercise lang:r xp:100 skills:1, 3 key:35eed4db9032977e2686c3a1e19ab5c81709fbbe
 ## Generic functions
 
 Some functions in R are very generic. They can take any object as an argument and they seem to magically do exactly what you'd hope they do in all situations.
@@ -463,7 +463,7 @@ success_msg("Great job! Next we'll take a brief look at classes.")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:100 skills:1, 3
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1, 3 key:87b0c0e1ec3826aeb84183f5f56b09355bfbefb1
 ## What's your class?
 
 Earlier we saw that `summary()` knows to give different output when it's arguments belong to different *classes*.
